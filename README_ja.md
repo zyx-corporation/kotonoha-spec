@@ -14,6 +14,10 @@
 
 公開レビューに載せる前の草案や検討メモは当リポジトリ外で整理し、公開可能に安定した内容だけをここに追加します。
 
+## 仕様書索引（normative・Phase 1）
+
+規範テキストは **英語** の [`docs/`](docs/README.md) にあります（バンドル **0.1**）。入口は [Introduction（英語）](docs/introduction.md)。コントリビューションは [CONTRIBUTING.md（英語）](CONTRIBUTING.md)、変更履歴は [CHANGELOG.md（英語）](CHANGELOG.md) を参照してください。
+
 ## 関連リポジトリ
 
 公開リポジトリ同士の参照のみ記載します。

@@ -14,6 +14,23 @@
 
 Drafts and notes that are not yet ready for public review are refined outside this repository; only material that is ready for stable, public publication is added here.
 
+## Specification index (normative — Phase 1)
+
+The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](docs/README.md). Start with [Introduction](docs/introduction.md), then read architecture, lineage model, RDE output, loss, audit correlation, and versioning.
+
+| Document | Description |
+| --- | --- |
+| [docs/README.md](docs/README.md) | Full index and deferred work |
+| [docs/introduction.md](docs/introduction.md) | Scope, definitions, conformance keywords |
+| [docs/architecture.md](docs/architecture.md) | Logical architecture |
+| [docs/semantic-lineage-model.md](docs/semantic-lineage-model.md) | Minimal lineage unit |
+| [docs/rde-review-output.md](docs/rde-review-output.md) | RDE categories and interchange record |
+| [docs/representation-of-loss.md](docs/representation-of-loss.md) | Requirements for lost elements |
+| [docs/audit-trail-relationship.md](docs/audit-trail-relationship.md) | RDE vs audit trails |
+| [docs/versioning.md](docs/versioning.md) | Versioning policy |
+
+Contributors: see [CONTRIBUTING.md](CONTRIBUTING.md). Release notes: [CHANGELOG.md](CHANGELOG.md).
+
 ## Related repositories
 
 Public cross-references only.
@@ -37,3 +54,4 @@ Unless otherwise stated in a specific file, repository content is licensed under
 ## Links
 
 - Repository: https://github.com/zyx-corporation/kotonoha-spec
+- Normative specs: [`docs/`](docs/README.md)
