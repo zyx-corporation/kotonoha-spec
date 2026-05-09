@@ -12,13 +12,14 @@
 - Contributor-facing guides (as needed)
 - Externally stable portions of the public roadmap
 
-Internal working notes and unrefined drafts stay in [`kotonoha-project`](https://github.com/zyx-corporation/kotonoha-project); content moves here once it is ready to be public and stable.
+Drafts and notes that are not yet ready for public review are refined outside this repository; only material that is ready for stable, public publication is added here.
 
 ## Related repositories
 
+Public cross-references only.
+
 | Repository | Role |
 | --- | --- |
-| [`kotonoha-project`](https://github.com/zyx-corporation/kotonoha-project) | Non-public project documents and design exploration |
 | **kotonoha-spec (this repository)** | Canonical public specifications |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | OSS core implementation of SLS |
 

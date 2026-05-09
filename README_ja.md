@@ -12,13 +12,14 @@
 - コントリビューター向けガイド（必要に応じて）
 - 公開ロードマップのうち対外向けに固定したい部分
 
-内部の検討メモや未整理の草案は [`kotonoha-project`](https://github.com/zyx-corporation/kotonoha-project) で扱い、安定・公開可能になった内容をここへ移します。
+公開レビューに載せる前の草案や検討メモは当リポジトリ外で整理し、公開可能に安定した内容だけをここに追加します。
 
 ## 関連リポジトリ
 
+公開リポジトリ同士の参照のみ記載します。
+
 | リポジトリ | 役割 |
 | --- | --- |
-| [`kotonoha-project`](https://github.com/zyx-corporation/kotonoha-project) | 非公開のプロジェクト文書・設計検討の置き場 |
 | **kotonoha-spec（本リポジトリ）** | 公開仕様の正本 |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | SLS の OSS コア実装 |
 
