@@ -1,2 +1,2 @@
-# sls-spec
+# kotonoha-spec
 Semantic Lineage System Spec
