@@ -39,6 +39,7 @@ Public cross-references only.
 | --- | --- |
 | **kotonoha-spec (this repository)** | Canonical public specifications |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | OSS core implementation of SLS |
+| [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) | Official `kotonoha` CLI ([definition](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)) |
 | [`kotonoha-docs`](https://github.com/zyx-corporation/kotonoha-docs) | Non-specification public docs (manuals, tutorials, guides) |
 
 Implementations in [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) should follow the public specifications in this repository whenever possible.
