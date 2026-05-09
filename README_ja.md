@@ -22,6 +22,7 @@
 | --- | --- |
 | **kotonoha-spec（本リポジトリ）** | 公開仕様の正本 |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | SLS の OSS コア実装 |
+| [`kotonoha-docs`](https://github.com/zyx-corporation/kotonoha-docs) | 仕様に含まない公開ドキュメント（マニュアル・チュートリアル等） |
 
 実装は、可能な限り本リポジトリの公開仕様に沿って [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) で進めます。
 
