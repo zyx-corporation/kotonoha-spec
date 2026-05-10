@@ -5,9 +5,7 @@ English is the **primary normative language** for documents in this directory. J
 | Document | Title | Status |
 | --- | --- | --- |
 | [repository-governance.md](repository-governance.md) | Ecosystem roles, dependency direction, informative governance | **Informative** |
-| [git_operation_rules.md](git_operation_rules.md) | Kotonoha Git/Issue/branch/PR rules (Japanese; duplicate of **`kotonoha-management` canonical**[^gitrules]) | **Informative — process** |
-
-[^gitrules]: Canonical: [`docs/04_git_operation_rules.md` in **`kotonoha-management`**](https://github.com/zyx-corporation/kotonoha-management/blob/main/docs/04_git_operation_rules.md). Update canon first, then mirror here.
+| [git_operation_rules.md](git_operation_rules.md) | Git/Issue/branch/PR workflow (Japanese) | **Informative — process** |
 
 ## Phase 1 — Public specification MVP (bundle **0.1**)
 
