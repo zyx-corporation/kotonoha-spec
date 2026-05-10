@@ -12,6 +12,14 @@ Thank you for improving the public specifications for the Semantic Lineage Syste
 6. **Lost elements modelling** beyond Phase 1’s minimum (`docs/representation-of-loss.md`, related RDE wording): incremental normative additions may correlate with **[`kotonoha-spec` issue #3](https://github.com/zyx-corporation/kotonoha-spec/issues/3)** (tracking / discussion).
 7. **Git workflow** (Issues, branches, PRs to `main` only — detailed rules): [`docs/git_operation_rules.md`](docs/git_operation_rules.md) (Japanese; self-contained document in this repo).
 
+### Semantic / RDE review cues (informative)
+
+Open or broaden discussion **before merging** materially normative wording when:
+
+- **Semantic-loss or deviation wording** downstream validators depend on (for example **`lost`** checks and reviewer-facing categories referenced from [`docs/rde-review-output.md`](docs/rde-review-output.md)).
+- The same editorial decision appears **misaligned across partner repositories** (spec versus docs/tooling narration), signalling an intent vs captured-result gap worth reconciling explicitly.
+- A change would reshape **`kotonoha.interchange.v1`**-shaped artifacts or tooling validation paths exercised by **`kotonoha-cli` CI**—coordinate with downstream traceability tracked in governance notes ([`repository-governance.md`](repository-governance.md)).
+
 ## Workflow
 
 1. Open an **Issue** describing the spec gap or erratum.
