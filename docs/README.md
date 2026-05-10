@@ -2,6 +2,10 @@
 
 English is the **primary normative language** for documents in this directory. Japanese summaries may be added later as `*_ja.md` alongside sources.
 
+| Document | Title | Status |
+| --- | --- | --- |
+| [repository-governance.md](repository-governance.md) | Ecosystem roles, dependency direction, informative governance | **Informative** |
+
 ## Phase 1 — Public specification MVP (bundle **0.1**)
 
 | Document | Title | Status |

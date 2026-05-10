@@ -31,6 +31,10 @@ The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](
 
 Contributors: see [CONTRIBUTING.md](CONTRIBUTING.md). Release notes: [CHANGELOG.md](CHANGELOG.md).
 
+## Repository governance (informative)
+
+How this repository interacts with implementations and auxiliary repos (source of truth, change flow, RDE scope) is summarized in English in **[`docs/repository-governance.md`](docs/repository-governance.md)** — *informative only*; normative text remains under [`docs/`](docs/).
+
 ## Related repositories
 
 Public cross-references only.

@@ -8,6 +8,7 @@ Thank you for improving the public specifications for the Semantic Lineage Syste
 2. **Normative vs informative:** repository [`README.md`](README.md) states policy; **`docs/`** holds normative Phase 1 material unless a section is explicitly marked non-normative.
 3. **Public boundary:** do not require private repository names, internal codenames, or undisclosed assets in normative requirements (see [`docs/introduction.md`](docs/introduction.md)).
 4. **RDE definitions** must remain operational (categories, interchange)—not metaphor-only.
+5. **Cross-repo roles** (spec vs core vs CLI vs docs): see the informative summary in [`docs/repository-governance.md`](docs/repository-governance.md).
 
 ## Workflow
 
