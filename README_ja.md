@@ -14,9 +14,15 @@
 
 公開レビューに載せる前の草案や検討メモは当リポジトリ外で整理し、公開可能に安定した内容だけをここに追加します。
 
-## 仕様書索引（normative・Phase 1）
+## 仕様書索引（normative は英語、`docs/`）
 
-規範テキストは **英語** の [`docs/`](docs/README.md) にあります（バンドル **0.1**）。入口は [Introduction（英語）](docs/introduction.md)。コントリビューションは [CONTRIBUTING.md（英語）](CONTRIBUTING.md)、変更履歴は [CHANGELOG.md（英語）](CHANGELOG.md) を参照してください。
+規範本文は **`docs/` 配下の英語**。日本語での入口と読順の補助は以下を用意しています。
+
+- **[索引（日本語・参考）… `README_ja.md`](docs/README_ja.md)** — Phase 1 ファイル対応一覧・推奨読順への誘導
+- **[はじめに（日本語要約・図）… `introduction_ja.md`](docs/introduction_ja.md)** — 規範は英語 **[`introduction.md`](docs/introduction.md)**
+- **[アーキテクチャ論理参考（日本語図付き）… `architecture_ja.md`](docs/architecture_ja.md)** — 規範は英語 **[`architecture.md`](docs/architecture.md)**
+
+英語索引の正式版は **[`docs/README.md`](docs/README.md)**。CONTRIBUTING と CHANGELOG も **[英語ファイル](CONTRIBUTING.md)** が正となります。
 
 ## 関連リポジトリ
 

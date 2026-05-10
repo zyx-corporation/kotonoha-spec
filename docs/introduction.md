@@ -4,6 +4,8 @@
 
 This document establishes scope, terminology, and conformance language for the **Semantic Lineage System (SLS)** public specification bundle maintained in this repository. Together with the other Phase 1 documents, it defines a **minimal reviewable surface** for implementations and integrations without pretending to finalize every data structure.
 
+*Non-normative Japanese illustrative companion:* [introduction_ja.md](introduction_ja.md) (figures and notes; conforms to EN source).
+
 ## Normative content
 
 Documents under `docs/` linked from [README.md](README.md) in this directory are **normative for Phase 1** unless marked explicitly as non-normative in their body.

@@ -29,6 +29,8 @@ The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](
 | [docs/audit-trail-relationship.md](docs/audit-trail-relationship.md) | RDE vs audit trails |
 | [docs/versioning.md](docs/versioning.md) | Versioning policy |
 
+**Non‑normative Japanese companions** (diagrams/summary/read order): [`docs/README_ja.md`](docs/README_ja.md), [`docs/introduction_ja.md`](docs/introduction_ja.md), [`docs/architecture_ja.md`](docs/architecture_ja.md).
+
 Contributors: see [CONTRIBUTING.md](CONTRIBUTING.md). Release notes: [CHANGELOG.md](CHANGELOG.md).
 
 ## Repository governance (informative)

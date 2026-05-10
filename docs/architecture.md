@@ -4,6 +4,8 @@
 
 SLS, as specified for Phase 1, comprises **logical responsibilities** that implementations MAY map to separate modules or combine. This document does not mandate deployment topology.
 
+*Non-normative Japanese illustrative companion:* [architecture_ja.md](architecture_ja.md).
+
 ## Figures *(informative only)*
 
 Diagrams below **illustrate** relationships described in prose. If a diagram and a normative section conflict, **the normative text prevails.**

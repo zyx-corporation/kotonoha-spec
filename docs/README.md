@@ -11,7 +11,9 @@ English is the **primary normative language** for documents in this directory. J
 | Document | Title | Status |
 | --- | --- | --- |
 | [introduction.md](introduction.md) | Scope, definitions, conformance keywords | Normative (Phase 1) |
+| [introduction_ja.md](introduction_ja.md) | Introduction (JA summary companion; illustrative figures + terminology notes) | **Informative — Japanese only** |
 | [architecture.md](architecture.md) | Logical architecture and component responsibilities | Normative (Phase 1) |
+| [architecture_ja.md](architecture_ja.md) | Architecture (JA summary companion with figures) | **Informative — Japanese only** |
 | [semantic-lineage-model.md](semantic-lineage-model.md) | Minimal semantic lineage unit and identifiers | Normative (Phase 1) |
 | [rde-review-output.md](rde-review-output.md) | RDE review categories and minimal interchange record | Normative (Phase 1) |
 | [representation-of-loss.md](representation-of-loss.md) | Requirements for representing lost semantic elements | Normative (Phase 1) |
