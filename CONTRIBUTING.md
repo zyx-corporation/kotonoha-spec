@@ -10,6 +10,7 @@ Thank you for improving the public specifications for the Semantic Lineage Syste
 4. **RDE definitions** must remain operational (categories, interchange)—not metaphor-only.
 5. **Cross-repo roles** (spec vs core vs CLI vs docs): see the informative summary in [`docs/repository-governance.md`](docs/repository-governance.md).
 6. **Lost elements modelling** beyond Phase 1’s minimum (`docs/representation-of-loss.md`, related RDE wording): incremental normative additions may correlate with **[`kotonoha-spec` issue #3](https://github.com/zyx-corporation/kotonoha-spec/issues/3)** (tracking / discussion).
+7. **Git workflow** (Issues, branches, PRs to `main` only — full rules): [`docs/git_operation_rules.md`](docs/git_operation_rules.md). Canonical copy in [`kotonoha-management`](https://github.com/zyx-corporation/kotonoha-management/blob/main/docs/04_git_operation_rules.md); update canon first.
 
 ## Workflow
 
