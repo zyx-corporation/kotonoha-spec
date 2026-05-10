@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- [introduction.md](docs/introduction.md): Phase 1 document map, clarified incremental obligations, informative pointers to `kotonoha-core` (`kotonoha.interchange.v1`) and `kotonoha-cli` definition.
+- [architecture.md](docs/architecture.md): informative reference interchange / CLI appendix while stressing Phase 1 `docs/` prevalence.
+- [docs/README.md](docs/README.md): recommended reading sequence and richer deferred-work list.
+
 ### Added
 
 - Informative [`docs/repository-governance.md`](docs/repository-governance.md) summarizing ecosystem roles (spec / core / CLI / docs) for public contributors.

@@ -16,7 +16,7 @@ Drafts and notes that are not yet ready for public review are refined outside th
 
 ## Specification index (normative — Phase 1)
 
-The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](docs/README.md). Start with [Introduction](docs/introduction.md), then read architecture, lineage model, RDE output, loss, audit correlation, and versioning.
+The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](docs/README.md). Start with [Introduction](docs/introduction.md) (includes the **[Phase 1 document map](docs/introduction.md#phase-1-document-map)**), then read architecture, lineage model, RDE output, loss, audit correlation, and versioning.
 
 | Document | Description |
 | --- | --- |

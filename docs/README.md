@@ -18,9 +18,17 @@ English is the **primary normative language** for documents in this directory. J
 | [audit-trail-relationship.md](audit-trail-relationship.md) | Relationship between RDE outputs and audit trails | Normative (Phase 1) |
 | [versioning.md](versioning.md) | Specification versioning and evolution | Normative (Phase 1) |
 
+### Recommended reading order
+
+New readers SHOULD follow **[introduction → architecture → lineage model → RDE output → representation of loss → audit trail correlation → versioning]**, optionally returning to introduction for definitions. Editors preparing pull requests SHOULD touch [versioning.md](versioning.md) whenever normative headings move or materially change wording.
+
+Public issue **[#3 — representation of lost elements](https://github.com/zyx-corporation/kotonoha-spec/issues/3)** tracks the interchange encoding work that complements [representation-of-loss.md](representation-of-loss.md).
+
 ## Incremental work (explicitly deferred)
 
-- Full JSON Schema published for all interchange types (tracked as incremental deliverables).
-- Wire-level APIs and network protocols (may follow once interchange stabilizes).
+- Full JSON Schema published for **all** interchange fields (beyond the minimal interchange record in [rde-review-output.md](rde-review-output.md)).
+- Typed schemas that fix every optional lineage property enumerated in Phase 2+ increments.
+- Wire-level APIs and network protocols (typically after interchange versioning stabilizes).
+- Authentication, tenancy, scalability, or threat-model obligations (planned for broader reliability phases referenced from [architecture.md](architecture.md)).
 
 See [versioning.md](versioning.md) for how incompatible changes are gated.

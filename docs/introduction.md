@@ -58,3 +58,25 @@ Normative documents **MUST NOT** require readers to access **private** repositor
 ## Human accountability
 
 Automated tools, including future RDE implementations, **MUST NOT** be normatively specified as replacing human judgment, approval, or accountability for publication and design decisions. Tools **MAY** assist observation and recording.
+
+## Phase 1 document map
+
+The Phase 1 bundle under `docs/` is split so obligations stay **reviewable** without implying every interchange detail is already frozen. Typical reading order mirrors the Phase 1 table in [`docs/README.md`](README.md): [Introduction](introduction.md) → [Architecture](architecture.md) → lineage model → RDE interchange → representation of loss → audit correlation → versioning.
+
+| Document | Normative focus (abbreviated) | Deliberately incremental |
+| --- | --- | --- |
+| [architecture.md](architecture.md) | Responsibilities for lineage representation, review output, interchange, audit correlation | No deployment topology; no identities |
+| [semantic-lineage-model.md](semantic-lineage-model.md) | Minimal **lineage unit** obligation (`id`, relationships) | Rich graph schema postponed |
+| [rde-review-output.md](rde-review-output.md) | Observation categories and **minimal** interchange logical shape | Full JSON Schema for every field |
+| [representation-of-loss.md](representation-of-loss.md) | Requirements to surface **lost** semantics | Canonical loss object encoding ([issue tracking](https://github.com/zyx-corporation/kotonoha-spec/issues/3)) |
+| [audit-trail-relationship.md](audit-trail-relationship.md) | Correlation expectations between RDE outputs and audits | Operational audit schemas |
+| [versioning.md](versioning.md) | How incompatible changes evolve | — |
+
+Public tracking for deferred normative gaps is managed through issues and pull requests on this repository; **implementations SHOULD still cite the relevant section headings** here when asserting conformance.
+
+## Informative anchors (reference implementations)
+
+The following OSS surfaces help exercise Phase 1 but **do not** replace normative text when judging conformance:
+
+- [`kotonoha-core` interchange source (`kotonoha.interchange.v1`)](https://github.com/zyx-corporation/kotonoha-core/blob/main/src/interchange.rs)
+- **[`kotonoha` CLI definition](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)** (commands, validation, persistence, exit meanings)
