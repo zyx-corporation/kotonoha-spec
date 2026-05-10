@@ -28,7 +28,7 @@ Open or broaden discussion **before merging** materially normative wording when:
 
 ## Reviews
 
-Reviewers should verify alignment with Phase 1 scope in [`docs/introduction.md`](docs/introduction.md) and check loss/deviation/human-accountability clauses where relevant.
+Reviewers should verify alignment with Phase 1 scope in [`docs/introduction.md`](docs/introduction.md) and check loss/deviation/human-accountability clauses where relevant. When **RDE category shapes** or JSON validation expectations would change in [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core), flag follow-up for **[`unit_testing_guidelines.md`](https://github.com/zyx-corporation/kotonoha-core/blob/main/docs/unit_testing_guidelines.md)** (and `spec-traceability`) or open a linked issue there before merging if behaviour must move ahead of spec text.
 
 ## License
 
