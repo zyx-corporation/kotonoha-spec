@@ -9,6 +9,7 @@ Thank you for improving the public specifications for the Semantic Lineage Syste
 3. **Public boundary:** do not require private repository names, internal codenames, or undisclosed assets in normative requirements (see [`docs/introduction.md`](docs/introduction.md)).
 4. **RDE definitions** must remain operational (categories, interchange)—not metaphor-only.
 5. **Cross-repo roles** (spec vs core vs CLI vs docs): see the informative summary in [`docs/repository-governance.md`](docs/repository-governance.md).
+6. **Lost elements modelling** beyond Phase 1’s minimum (`docs/representation-of-loss.md`, related RDE wording): incremental normative additions may correlate with **[`kotonoha-spec` issue #3](https://github.com/zyx-corporation/kotonoha-spec/issues/3)** (tracking / discussion).
 
 ## Workflow
 
