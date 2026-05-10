@@ -14,6 +14,16 @@
 
 公開レビューに載せる前の草案や検討メモは当リポジトリ外で整理し、公開可能に安定した内容だけをここに追加します。
 
+## 仕様書索引（normative は英語、`docs/`）
+
+規範本文は **`docs/` 配下の英語**。日本語での入口と読順の補助は以下を用意しています。
+
+- **[索引（日本語・参考）… `README_ja.md`](docs/README_ja.md)** — Phase 1 ファイル対応一覧・推奨読順への誘導
+- **[はじめに（日本語要約・図）… `introduction_ja.md`](docs/introduction_ja.md)** — 規範は英語 **[`introduction.md`](docs/introduction.md)**
+- **[アーキテクチャ論理参考（日本語図付き）… `architecture_ja.md`](docs/architecture_ja.md)** — 規範は英語 **[`architecture.md`](docs/architecture.md)**
+
+英語索引の正式版は **[`docs/README.md`](docs/README.md)**。CONTRIBUTING と CHANGELOG も **[英語ファイル](CONTRIBUTING.md)** が正となります。
+
 ## 関連リポジトリ
 
 公開リポジトリ同士の参照のみ記載します。
@@ -22,6 +32,7 @@
 | --- | --- |
 | **kotonoha-spec（本リポジトリ）** | 公開仕様の正本 |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | SLS の OSS コア実装 |
+| [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) | 公式 CLI（[`CLI 定義`](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)） |
 | [`kotonoha-docs`](https://github.com/zyx-corporation/kotonoha-docs) | 仕様に含まない公開ドキュメント（マニュアル・チュートリアル等） |
 
 実装は、可能な限り本リポジトリの公開仕様に沿って [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) で進めます。
@@ -37,3 +48,5 @@
 ## リンク
 
 - 本リポジトリ: https://github.com/zyx-corporation/kotonoha-spec
+- 規範索引（英語）: [`docs/`](docs/README.md)
+- GitHub Projects（組織運用・英語）: [`docs/github_projects_policy.md`](docs/github_projects_policy.md)
