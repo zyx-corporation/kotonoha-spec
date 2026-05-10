@@ -4,6 +4,49 @@
 
 SLS, as specified for Phase 1, comprises **logical responsibilities** that implementations MAY map to separate modules or combine. This document does not mandate deployment topology.
 
+## Figures *(informative only)*
+
+Diagrams below **illustrate** relationships described in prose. If a diagram and a normative section conflict, **the normative text prevails.**
+
+### Figure 1 — Logical responsibilities and interchange
+
+```mermaid
+flowchart TB
+    subgraph ext["Existing collaboration tools (Phase 1 does not replace)"]
+        VCS[VCS / diffs etc.]
+        ISS[Issues / trackers]
+        BRD[Project boards]
+    end
+
+    subgraph p1["Phase 1 responsibilities (normative prose in this repo)"]
+        LR[Lineage representation]
+        RDE[RDE review output]
+        IX[Interchange]
+        AUD[Audit correlation]
+    end
+
+    VCS -. MAY feed hints external to lineage .-> LR
+    ISS -. MAY provide subject context .-> RDE
+
+    LR <-->|serializes lineage-relevant payloads| IX
+    RDE -->|serialized review observations per rde-review-output.md| IX
+    RDE --> AUD
+    IX --> AUD
+```
+
+### Figure 2 — RDE observations vs human authority
+
+```mermaid
+flowchart LR
+    T[RDE-related tooling implementations]
+    REC[RDE review output interchange record]
+    H[Human judgment approval accountability]
+
+    T --> REC
+    REC -.->|MUST NOT by itself authorize or reject| H
+    REC -. MAY inform discussion .-> H
+```
+
 ## Logical components
 
 ### Lineage representation
