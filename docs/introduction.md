@@ -36,6 +36,62 @@ The key words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, **MAY**, and *
 
 **ΔM** denotes a semantic change—shift in intent, scope, tension, or value—not equivalent to a raw text diff. Specifications MAY reference ΔM when contrasting semantic change from lexical change.
 
+## Figures *(informative only)*
+
+Diagrams **illustrate** definitions and applicability; they **do not** replace normative text in this introduction or sibling documents.
+
+### Figure A — Institutional framing vs operationalized review
+
+```mermaid
+flowchart TB
+    K[Kotonoha framing]
+    SLS[Semantic Lineage System]
+    LU[Semantic lineage directed lineage units]
+
+    K -->|policies specifications implementations naming| SLS
+    SLS --> LU
+
+    RDE[RDE review categories interchange record norms]
+    RDE -.->|categories interchange shape per rde-review-output| LU
+```
+
+*Solid arrows recap institutional naming and lineage substrate; the dashed arrow highlights that operational **RDE obligations** tie to lineage subjects without replacing the lineage model.*
+
+### Figure B — Applicability envelope
+
+```mermaid
+flowchart TB
+    subgraph IN["Phase 1 in scope (summary)"]
+        direction TB
+        a1[Component responsibilities abstraction]
+        a2[Minimal lineage unit and interchange record obligations]
+        a3[Explicit loss surfacing expectations]
+        a4[RDE output vs audit abstraction]
+    end
+
+    subgraph OUT["Explicitly incremental or deferred"]
+        direction TB
+        b1[Full JSON Schema corpus all interchange facets]
+        b2[Wire protocols identity storage backends]
+        b3[Product UI fidelity]
+    end
+```
+
+### Figure C — Suggested Phase 1 reading order
+
+Following [docs/README.md](README.md):
+
+```mermaid
+flowchart LR
+    FA[architecture] --> FB[semantic-lineage-model]
+    FB --> FC[rde-review-output]
+    FC --> FD[representation-of-loss]
+    FD --> FE[audit-trail-relationship]
+    FE --> FF[versioning]
+```
+
+Skip back to definitions in Introduction as needed for terminology anchored above.
+
 ## Applicability
 
 ### In scope for Phase 1

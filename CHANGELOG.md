@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 
 - [architecture.md](docs/architecture.md): added informative **Mermaid** diagrams (logical responsibilities ↔ interchange; RDE outputs vs human authority); reference interchange / CLI appendix unchanged in intent.
-- [introduction.md](docs/introduction.md): Phase 1 document map, clarified incremental obligations, informative pointers to `kotonoha-core` (`kotonoha.interchange.v1`) and `kotonoha-cli` definition.
+- [introduction.md](docs/introduction.md): Phase 1 document map; informative **Mermaid** figures for concept layering, applicability envelope, and reading order; incremental obligations clarified; OSS informative pointers (`kotonoha-core` interchange, `kotonoha-cli` definition).
 - [docs/README.md](docs/README.md): recommended reading sequence and richer deferred-work list.
 
 ### Added
