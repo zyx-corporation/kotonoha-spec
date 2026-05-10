@@ -74,4 +74,4 @@ Phase 1 は **リポジトリ構成やデザインパターンの採否を規定
 
 本文の細目・MUST／SHOULD の全文はすべて **[architecture.md の Logical components](architecture.md)** 以降へ委譲します。
 
-OSS 側の **`kotonoha.interchange.v1`** や **`kotonoha-cli` 定義** の位置づけは、英語版 **[Reference interchange (informative only)](architecture.md#reference-interchange-informative-only)** と同一の注意書きです。
+OSS 側の **`kotonoha.interchange.v1`** や **`kotonoha-cli` 定義** の位置づけは、英語版 **[Reference interchange (informative only)](architecture.md#reference-interchange-informative-only)** と同一の注意書きです。**参考：** `kotonoha-core` Phase 2 実装は、deserialize 時に interchange **トップレベル**および **`lineage_unit` オブジェクトの未知フィールド**を拒否する（規範の追加ではなく、ツール側の契約収束）。
