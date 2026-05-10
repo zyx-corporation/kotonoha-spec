@@ -98,4 +98,6 @@ Prefer idiomatic structure in each language (e.g. Rust: traits, enums, compositi
 
 OSS implementations MAY attach conformance metadata via the **`kotonoha.interchange.v1`** vocabulary defined in **[`src/interchange.rs`](https://github.com/zyx-corporation/kotonoha-core/blob/main/src/interchange.rs)** in **`kotonoha-core`**. This format guides validators and tooling; when it diverges from normative wording in Phase 1, **the Phase 1 English documents prevail** until superseded according to [versioning.md](versioning.md).
 
+**Informative tightening in `kotonoha-core` (Phase 2 tooling):** current releases **`#[serde(deny_unknown_fields)]` on deserialization** — the interchange JSON object **MUST NOT** carry unknown **top‑level** keys (`format`, `spec_bundle`, `lineage_unit`, `rde_document` only); when `lineage_unit` is present, that nested object **`id` / `prior_unit_id` only**. This guards against unstructured extensions being mistaken for contract evolution **without** extending Phase 1 normative requirements in `docs/` here.
+
 The official **[`kotonoha` CLI definition](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)** documents command surfaces, interchange validation/storage paths, and exit-code semantics referenced from contributor guides; it likewise remains informative relative to canonical requirements in `docs/`.

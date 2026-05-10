@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- [architecture.md](docs/architecture.md): informative **Implementation structuring**: when evolving implementations MAY refactor (multi-format interchange, RDE rule growth, multiple backends, duplicated checks) without changing Phase 1 normative surface; mirrored in Japanese companion [architecture_ja.md](docs/architecture_ja.md).
+- [architecture.md](docs/architecture.md): **Reference interchange** に `kotonoha-core` がトップレベル／**`lineage_unit`** で未知 JSON フィールドを拒否する **informative** 補足（Phase 1 規範の拡張ではない）。
 
 - [architecture.md](docs/architecture.md): added informative **Mermaid** diagrams (logical responsibilities ↔ interchange; RDE outputs vs human authority); reference interchange / CLI appendix unchanged in intent.
 - [introduction.md](docs/introduction.md): Phase 1 document map; informative **Mermaid** figures for concept layering, applicability envelope, and reading order; incremental obligations clarified; OSS informative pointers (`kotonoha-core` interchange, `kotonoha-cli` definition).
