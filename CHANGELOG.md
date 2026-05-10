@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
-- Non‑normative Japanese companion docs: [`docs/README_ja.md`](docs/README_ja.md) (reading order helpers), [`docs/introduction_ja.md`](docs/introduction_ja.md) and [`docs/architecture_ja.md`](docs/architecture_ja.md) (diagrams mapped to normative English); cross‑links from root [`README`](README.md) / [`README_ja`](README_ja.md) and `docs/README.md`.
+- Non‑normative Japanese companion docs: [`docs/README_ja.md`](docs/README_ja.md) (reading order helpers), [`docs/introduction_ja.md`](docs/introduction_ja.md) and [`docs/architecture_ja.md`](docs/architecture_ja.md) (diagrams mapped to normative English); cross‑links from root [`README`](README.md) / [`README_ja`](README_ja.md) and `docs/README.md` ([discussion / tracking #4](https://github.com/zyx-corporation/kotonoha-spec/issues/4)).
 - Informative [`docs/repository-governance.md`](docs/repository-governance.md) summarizing ecosystem roles (spec / core / CLI / docs) for public contributors.
 - Public tracking **[#3 — representation of lost elements](https://github.com/zyx-corporation/kotonoha-spec/issues/3)** linked from implementation CONTRIBUTING/traceability flows.
 
