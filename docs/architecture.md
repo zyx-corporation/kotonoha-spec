@@ -79,6 +79,21 @@ Phase 1 specifies **structural and documentary obligations**. It does **not** sp
 
 Implementations **SHOULD** maintain explicit references (for example section identifiers) between behavior and the relevant normative sections in this repository.
 
+## Implementation structuring (informative only)
+
+Phase 1 **does not** mandate repository layout, module shapes, or the use of object-oriented **design patterns** in code.
+
+The following **evolution signals** MAY warrant implementer-side **refactoring** — for example clearer decomposition, composition, or per-version validation paths — as long as externally visible obligations in this specification **do not** silently change ([versioning.md](versioning.md); traceability preserved):
+
+| Signal | Typical direction *(examples only; not requirements)* |
+| --- | --- |
+| Multiple concurrently supported **interchange** shapes or **`spec_bundle` / spec version** validation lines | Separate validation per format or bundle (e.g. `enum` / `match`, small modules, traits) instead of one intersecting routine |
+| **RDE** rules spread independently and regressions multiply | Factor rules into testable units; avoid an unnecessary monolithic validator |
+| More than one **persistent or transport backend** behind the same behavioral contract | Shared interface with adapter-specific implementations |
+| The same conformance logic is **duplicated** across crates or CLIs | Extract shared helpers or types **without** relaxing normative checks |
+
+Prefer idiomatic structure in each language (e.g. Rust: traits, enums, composition). Internal engineering mirrors MAY expand on timing; they are **not** normative here.
+
 ## Reference interchange (informative only)
 
 OSS implementations MAY attach conformance metadata via the **`kotonoha.interchange.v1`** vocabulary defined in **[`src/interchange.rs`](https://github.com/zyx-corporation/kotonoha-core/blob/main/src/interchange.rs)** in **`kotonoha-core`**. This format guides validators and tooling; when it diverges from normative wording in Phase 1, **the Phase 1 English documents prevail** until superseded according to [versioning.md](versioning.md).
