@@ -48,3 +48,5 @@
 ## リンク
 
 - 本リポジトリ: https://github.com/zyx-corporation/kotonoha-spec
+- 規範索引（英語）: [`docs/`](docs/README.md)
+- GitHub Projects（組織運用・英語）: [`docs/github_projects_policy.md`](docs/github_projects_policy.md)

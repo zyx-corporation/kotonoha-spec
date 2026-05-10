@@ -62,3 +62,4 @@ Unless otherwise stated in a specific file, repository content is licensed under
 
 - Repository: https://github.com/zyx-corporation/kotonoha-spec
 - Normative specs: [`docs/`](docs/README.md)
+- GitHub Projects (organization workflow): [`docs/github_projects_policy.md`](docs/github_projects_policy.md)
