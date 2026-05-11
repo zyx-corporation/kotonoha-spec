@@ -16,6 +16,7 @@ The following table summarizes the concepts used by this architecture document. 
 | **SLS** | System family for recording semantic lineage across meaning-relevant changes | [introduction.md](introduction.md#semantic-lineage-system-sls) |
 | **Semantic lineage** | Directed, inspectable relationship among lineage units | [introduction.md](introduction.md#semantic-lineage) |
 | **Lineage unit** | Minimal persisted subject of semantic lineage | [semantic-lineage-model.md](semantic-lineage-model.md) |
+| **Memory layer** | Implementation substrate that stores lineage units, prior RDE outputs, source references, and audit correlation data without replacing the lineage model itself | [semantic-lineage-model.md](semantic-lineage-model.md), [audit-trail-relationship.md](audit-trail-relationship.md) |
 | **ΔM** | Meaning-relevant change, distinct from raw textual diff | [introduction.md](introduction.md#δm-semantic-change) |
 | **RDE review** | Structured observation of semantic deviation using RDE categories | [rde-review-output.md](rde-review-output.md) |
 | **Interchange** | Serialized representation for exchanging lineage and RDE payloads between tools | [rde-review-output.md](rde-review-output.md), [versioning.md](versioning.md) |
@@ -44,8 +45,16 @@ flowchart TB
         AUD[Audit correlation]
     end
 
+    subgraph impl["Implementation substrate (not mandated as topology)"]
+        MEM[Memory layer]
+    end
+
     VCS -. MAY feed hints external to lineage .-> LR
     ISS -. MAY provide subject context .-> RDE
+
+    LR -. may persist through .-> MEM
+    RDE -. may persist observations through .-> MEM
+    AUD -. may correlate through .-> MEM
 
     LR <-->|serializes lineage-relevant payloads| IX
     RDE -->|serialized review observations per rde-review-output.md| IX
@@ -73,6 +82,14 @@ flowchart LR
 **Responsibility:** persist and expose **lineage units** and their relationships according to [semantic-lineage-model.md](semantic-lineage-model.md).
 
 **Non-requirements:** replacing Git, issue trackers, or project boards. Those tools **MAY** coexist; SLS addresses semantic lineage they do not fully capture.
+
+### Memory layer *(informative implementation substrate)*
+
+**Responsibility:** provide durable access to lineage units, source references, prior RDE review outputs, loss observations, and audit-correlation identifiers as needed by an implementation.
+
+**Positioning:** the memory layer is below the logical responsibilities rather than above them. It supports lineage representation, RDE review output, interchange, and audit correlation, but it does **not** define semantic lineage by itself and it does **not** authorize decisions.
+
+**Boundary:** Phase 1 does not mandate a storage engine, database model, vector index, graph store, filesystem layout, or retention policy. Implementations MAY combine memory with the lineage representation component, or expose it as a separate module, provided the externally visible obligations in the Phase 1 documents remain satisfied.
 
 ### RDE review output
 
