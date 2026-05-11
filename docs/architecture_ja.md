@@ -6,7 +6,29 @@
 
 ## 概要の要約
 
-Phase 1 の SLS は **複数論理責務**の組み立てであり、モジュール分割や単一サービス構成などの **配置トポロジーまでは規定しない**（詳細は英語原版）。
+Phase 1 の SLS は **複数の論理責務**の組み立てであり、モジュール分割、単一サービス構成、データベース構成などの **配置トポロジーまでは規定しない**（詳細は英語原版）。
+
+このページでは、英語版に追加された概念一覧と、記憶層（Memory layer）の位置づけを日本語で補足する。記憶層は RDE の内部部品ではなく、lineage unit、RDE 出力、loss、監査相関などを保持する**実装基盤層**として扱う。
+
+---
+
+## 概念一覧 *(参考のみ)*
+
+以下の表は、英語版 **[Concept list](architecture.md#concept-list-informative-only)** の日本語対応である。規範上の定義は [`introduction.md`](introduction.md) および各 Phase 1 文書に従う。
+
+| 概念 | このアーキテクチャでの役割 | 主な仕様アンカー |
+| --- | --- | --- |
+| **Kotonoha** | SLS の仕様、方針、実装を束ねるエコシステム上・制度上の枠組み | [introduction.md](introduction.md#kotonoha) |
+| **SLS** | 意味に関わる変更をまたいで semantic lineage を記録するシステム群 | [introduction.md](introduction.md#semantic-lineage-system-sls) |
+| **Semantic lineage** | lineage unit 間の有向で検査可能な関係 | [introduction.md](introduction.md#semantic-lineage) |
+| **Lineage unit** | semantic lineage の最小永続対象 | [semantic-lineage-model.md](semantic-lineage-model.md) |
+| **Memory layer** | lineage unit、過去の RDE 出力、source reference、audit correlation data を保持する実装基盤。ただし lineage model 自体を置換しない | [semantic-lineage-model.md](semantic-lineage-model.md), [audit-trail-relationship.md](audit-trail-relationship.md) |
+| **ΔM** | raw text diff とは異なる、意味に関わる変化 | [introduction.md](introduction.md#δm-semantic-change) |
+| **RDE review** | RDE category に基づく semantic deviation の構造化された観測 | [rde-review-output.md](rde-review-output.md) |
+| **Interchange** | lineage と RDE payload をツール間で交換するための直列化表現 | [rde-review-output.md](rde-review-output.md), [versioning.md](versioning.md) |
+| **Representation of loss** | 削除、弱化、未表現化された意味要素を明示する責務 | [representation-of-loss.md](representation-of-loss.md) |
+| **Audit correlation** | review output、lineage record、audit trail の対応関係 | [audit-trail-relationship.md](audit-trail-relationship.md) |
+| **Human authority** | 公開、承認、却下、修正に関する人間の判断と説明責任 | [introduction.md](introduction.md#human-accountability) |
 
 ---
 
@@ -17,25 +39,33 @@ Phase 1 の SLS は **複数論理責務**の組み立てであり、モジュ�
 ### Figure 1 — 論理責務と interchange（日本語ノード）
 
 ```mermaid
-flowchart TB
+flowchart TD
     subgraph ext["既存協働ツール Phase 1 では代替しない"]
-        VCS[VCS／差分等]
-        ISS[Issue／チケット]
-        BRD[プロジェクトボード]
+        VCS["VCS／差分等"]
+        ISS["Issue／チケット"]
+        BRD["プロジェクトボード"]
     end
 
     subgraph p1["Phase 1 論理責務 本文はこのリポの英文規範"]
-        LR[lineage の表現]
-        RDE[RDE レビュー出力]
-        IX[Interchange]
-        AUD[監査との相関]
+        LR["lineage の表現"]
+        RDE["RDE レビュー出力"]
+        IX["Interchange"]
+        AUD["監査との相関"]
     end
 
-    VCS -. lineage 外のヒントとして .-> LR
-    ISS -. レビュ対象コンテキスト .-> RDE
+    subgraph impl["実装基盤 トポロジーとしては規定しない"]
+        MEM["記憶層 Memory layer"]
+    end
 
-    LR <-->|lineage系ペイロードの列挙| IX
-    RDE -->|rde-review-output に準拠する観測| IX
+    VCS -. "lineage 外のヒントとして" .-> LR
+    ISS -. "レビュー対象コンテキスト" .-> RDE
+
+    LR -. "永続化に利用しうる" .-> MEM
+    RDE -. "観測結果の保持に利用しうる" .-> MEM
+    AUD -. "相関識別子の保持に利用しうる" .-> MEM
+
+    LR <-->|"lineage 系ペイロードの列挙"| IX
+    RDE -->|"rde-review-output に準拠する観測"| IX
     RDE --> AUD
     IX --> AUD
 ```
@@ -44,14 +74,44 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    T[RDE 関連実装／ツール]
-    REC[RDE interchange 記録]
-    H[人間の判断／承認／説明責任]
+    T["RDE 関連実装／ツール"]
+    REC["RDE interchange 記録"]
+    H["人間の判断／承認／説明責任"]
 
     T --> REC
-    REC -.->|単体では承認や却下に置換しない| H
-    REC -. 議論の材料になりうる .-> H
+    REC -.->|"単体では承認や却下に置換しない"| H
+    REC -. "議論の材料になりうる" .-> H
 ```
+
+---
+
+## 論理コンポーネントの補足
+
+本文の細目・MUST／SHOULD の全文はすべて **[architecture.md の Logical components](architecture.md#logical-components)** 以降へ委譲します。ここでは、日本語で要点のみ補足する。
+
+### Lineage representation
+
+lineage unit とその関係を永続・公開する責務である。Git、Issue tracker、project board を置換するものではなく、それらが十分には保持しない意味履歴を扱う。
+
+### Memory layer
+
+記憶層は、lineage unit、source reference、過去の RDE review output、loss observation、audit-correlation identifier への永続アクセスを提供する実装基盤である。
+
+重要なのは、記憶層が **RDEそのものではない** こと、また **semantic lineage の定義そのものでもない** ことである。記憶層は、lineage representation、RDE review output、interchange、audit correlation を支える下位基盤であり、人間の判断を承認・却下する権限も持たない。
+
+Phase 1 では、storage engine、database model、vector index、graph store、filesystem layout、retention policy は規定しない。実装は、記憶層を lineage representation component と統合してもよいし、独立モジュールとして公開してもよい。ただし、外部から見える Phase 1 の義務を満たす必要がある。
+
+### RDE review output
+
+RDE は semantic deviation を観測し、構造化された review output として記録する責務である。RDE 出力は判断材料になりうるが、それ自体が人間の承認・却下・公開判断を置換してはならない。
+
+### Interchange
+
+RDE 出力と lineage data をツール間で交換するための直列化責務である。詳細な schema evolution は [`versioning.md`](versioning.md) に従う。
+
+### Audit correlation
+
+RDE review output と audit record の対応関係を保持する責務である。これは制度的説明責任のための相関であり、単なる debug log ではない。
 
 ---
 
@@ -70,8 +130,6 @@ Phase 1 は **リポジトリ構成やデザインパターンの採否を規定
 
 ---
 
-## 論理コンポーネント以降について
-
-本文の細目・MUST／SHOULD の全文はすべて **[architecture.md の Logical components](architecture.md)** 以降へ委譲します。
+## Reference interchange について
 
 OSS 側の **`kotonoha.interchange.v1`** や **`kotonoha-cli` 定義** の位置づけは、英語版 **[Reference interchange (informative only)](architecture.md#reference-interchange-informative-only)** と同一の注意書きです。**参考：** `kotonoha-core` Phase 2 実装は、deserialize 時に interchange **トップレベル**および **`lineage_unit` オブジェクトの未知フィールド**を拒否する（規範の追加ではなく、ツール側の契約収束）。
