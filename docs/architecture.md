@@ -6,6 +6,23 @@ SLS, as specified for Phase 1, comprises **logical responsibilities** that imple
 
 *Non-normative Japanese illustrative companion:* [architecture_ja.md](architecture_ja.md).
 
+## Concept list *(informative only)*
+
+The following table summarizes the concepts used by this architecture document. It is a reading aid; normative definitions remain in [introduction.md](introduction.md) and the relevant Phase 1 documents.
+
+| Concept | Role in this architecture | Primary specification anchor |
+| --- | --- | --- |
+| **Kotonoha** | Ecosystem and institutional framing for SLS specifications, policies, and implementations | [introduction.md](introduction.md#kotonoha) |
+| **SLS** | System family for recording semantic lineage across meaning-relevant changes | [introduction.md](introduction.md#semantic-lineage-system-sls) |
+| **Semantic lineage** | Directed, inspectable relationship among lineage units | [introduction.md](introduction.md#semantic-lineage) |
+| **Lineage unit** | Minimal persisted subject of semantic lineage | [semantic-lineage-model.md](semantic-lineage-model.md) |
+| **ΔM** | Meaning-relevant change, distinct from raw textual diff | [introduction.md](introduction.md#δm-semantic-change) |
+| **RDE review** | Structured observation of semantic deviation using RDE categories | [rde-review-output.md](rde-review-output.md) |
+| **Interchange** | Serialized representation for exchanging lineage and RDE payloads between tools | [rde-review-output.md](rde-review-output.md), [versioning.md](versioning.md) |
+| **Representation of loss** | Explicit surfacing of semantic elements that are removed, weakened, or no longer represented | [representation-of-loss.md](representation-of-loss.md) |
+| **Audit correlation** | Correlatable relationship between review outputs, lineage records, and audit trails | [audit-trail-relationship.md](audit-trail-relationship.md) |
+| **Human authority** | Human judgment and accountability for publication, approval, rejection, or revision | [introduction.md](introduction.md#human-accountability) |
+
 ## Figures *(informative only)*
 
 Diagrams below **illustrate** relationships described in prose. If a diagram and a normative section conflict, **the normative text prevails.**
