@@ -18,22 +18,22 @@ Drafts and notes that are not yet ready for public review are refined outside th
 
 ## Specification index (normative — Phase 1)
 
-The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](docs/README.md). Start with [Requirements overview](docs/requirements-overview.md) for the full architecture picture and use cases, then read [Introduction](docs/introduction.md) (includes the **[Phase 1 document map](docs/introduction.md#phase-1-document-map)**), architecture, lineage model, RDE output, loss, audit correlation, and versioning.
+The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](docs/README.md). The specification uses stable hierarchical identifiers such as `SLS-1.4.4` and `SLS-5.4.3`.
 
-| Document | Description |
-| --- | --- |
-| [docs/README.md](docs/README.md) | Full index and deferred work |
-| [docs/documentation-placement-policy.md](docs/documentation-placement-policy.md) | Role split between `kotonoha-spec` and `kotonoha-docs` |
-| [docs/requirements-overview.md](docs/requirements-overview.md) | System requirements overview, full architecture picture, and use cases |
-| [docs/introduction.md](docs/introduction.md) | Scope, definitions, conformance keywords |
-| [docs/architecture.md](docs/architecture.md) | Logical architecture |
-| [docs/semantic-lineage-model.md](docs/semantic-lineage-model.md) | Minimal lineage unit |
-| [docs/rde-review-output.md](docs/rde-review-output.md) | RDE categories and interchange record |
-| [docs/representation-of-loss.md](docs/representation-of-loss.md) | Requirements for lost elements |
-| [docs/audit-trail-relationship.md](docs/audit-trail-relationship.md) | RDE vs audit trails |
-| [docs/versioning.md](docs/versioning.md) | Versioning policy |
+| Number | Document | Description |
+| --- | --- | --- |
+| SLS-1 | [docs/introduction.md](docs/introduction.md) | Scope, definitions, conformance keywords |
+| SLS-2 | [docs/architecture.md](docs/architecture.md) | Logical architecture |
+| SLS-3 | [docs/semantic-lineage-model.md](docs/semantic-lineage-model.md) | Minimal lineage unit |
+| SLS-4 | [docs/rde-review-output.md](docs/rde-review-output.md) | RDE categories and interchange record |
+| SLS-5 | [docs/rde-implementation-specification.md](docs/rde-implementation-specification.md) | RDE implementation responsibilities and boundaries |
+| SLS-6 | [docs/representation-of-loss.md](docs/representation-of-loss.md) | Requirements for lost elements |
+| SLS-7 | [docs/audit-trail-relationship.md](docs/audit-trail-relationship.md) | RDE vs audit trails |
+| SLS-8 | [docs/versioning.md](docs/versioning.md) | Versioning policy |
 
-**Non‑normative Japanese companions** (diagrams/summary/read order): [`docs/README_ja.md`](docs/README_ja.md), [`docs/introduction_ja.md`](docs/introduction_ja.md), [`docs/architecture_ja.md`](docs/architecture_ja.md).
+Start with [SLS-1 Introduction](docs/introduction.md), then read SLS-2 through SLS-8 in order. [docs/README.md](docs/README.md) contains the full index and deferred work.
+
+**Non‑normative Japanese companions** (diagrams/summary/read order): [`docs/README_ja.md`](docs/README_ja.md), [`docs/introduction_ja.md`](docs/introduction_ja.md), [`docs/architecture_ja.md`](docs/architecture_ja.md), [`docs/rde-implementation-specification_ja.md`](docs/rde-implementation-specification_ja.md).
 
 Contributors: see [CONTRIBUTING.md](CONTRIBUTING.md). Release notes: [CHANGELOG.md](CHANGELOG.md).
 
