@@ -6,11 +6,13 @@
 
 ## What belongs here
 
-- Concept and architecture specifications
+- Normative specifications and conformance language
 - Interface definitions, schemas, and format specifications
-- Public design rationale and materials suitable for external review
-- Contributor-facing guides (as needed)
-- Externally stable portions of the public roadmap
+- Specification governance and externally stable public roadmap material
+- Public design rationale when it directly supports specification interpretation
+- Contributor-facing guides for specification work (as needed)
+
+Conceptual explanations, tutorials, manuals, acceptance demos, and reader-facing guides normally belong in [`kotonoha-docs`](https://github.com/zyx-corporation/kotonoha-docs). This repository may link to those explanatory documents when useful. See [Documentation placement policy](docs/documentation-placement-policy.md).
 
 Drafts and notes that are not yet ready for public review are refined outside this repository; only material that is ready for stable, public publication is added here.
 
@@ -21,6 +23,7 @@ The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](
 | Document | Description |
 | --- | --- |
 | [docs/README.md](docs/README.md) | Full index and deferred work |
+| [docs/documentation-placement-policy.md](docs/documentation-placement-policy.md) | Role split between `kotonoha-spec` and `kotonoha-docs` |
 | [docs/requirements-overview.md](docs/requirements-overview.md) | System requirements overview, full architecture picture, and use cases |
 | [docs/introduction.md](docs/introduction.md) | Scope, definitions, conformance keywords |
 | [docs/architecture.md](docs/architecture.md) | Logical architecture |
@@ -38,6 +41,8 @@ Contributors: see [CONTRIBUTING.md](CONTRIBUTING.md). Release notes: [CHANGELOG.
 
 How this repository interacts with implementations and auxiliary repos (source of truth, change flow, RDE scope) is summarized in English in **[`docs/repository-governance.md`](docs/repository-governance.md)** — *informative only*; normative text remains under [`docs/`](docs/).
 
+The public document placement rule is summarized in **[`docs/documentation-placement-policy.md`](docs/documentation-placement-policy.md)**. In short: stable specification obligations belong here; explanatory and conceptual documents belong in [`kotonoha-docs`](https://github.com/zyx-corporation/kotonoha-docs), with links back to this repository for canonical semantics.
+
 ## Related repositories
 
 Public cross-references only.
@@ -47,7 +52,7 @@ Public cross-references only.
 | **kotonoha-spec (this repository)** | Canonical public specifications |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | OSS core implementation of SLS |
 | [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) | Official `kotonoha` CLI ([definition](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)) |
-| [`kotonoha-docs`](https://github.com/zyx-corporation/kotonoha-docs) | Non-specification public docs (manuals, tutorials, guides) |
+| [`kotonoha-docs`](https://github.com/zyx-corporation/kotonoha-docs) | Non-specification public docs (manuals, tutorials, guides, conceptual explanations) |
 
 Implementations in [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) should follow the public specifications in this repository whenever possible.
 
