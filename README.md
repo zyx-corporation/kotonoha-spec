@@ -16,11 +16,12 @@ Drafts and notes that are not yet ready for public review are refined outside th
 
 ## Specification index (normative — Phase 1)
 
-The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](docs/README.md). Start with [Introduction](docs/introduction.md) (includes the **[Phase 1 document map](docs/introduction.md#phase-1-document-map)**), then read architecture, lineage model, RDE output, loss, audit correlation, and versioning.
+The Phase 1 **public specification MVP** (bundle **0.1**) lives under [`docs/`](docs/README.md). Start with [Requirements overview](docs/requirements-overview.md) for the full architecture picture and use cases, then read [Introduction](docs/introduction.md) (includes the **[Phase 1 document map](docs/introduction.md#phase-1-document-map)**), architecture, lineage model, RDE output, loss, audit correlation, and versioning.
 
 | Document | Description |
 | --- | --- |
 | [docs/README.md](docs/README.md) | Full index and deferred work |
+| [docs/requirements-overview.md](docs/requirements-overview.md) | System requirements overview, full architecture picture, and use cases |
 | [docs/introduction.md](docs/introduction.md) | Scope, definitions, conformance keywords |
 | [docs/architecture.md](docs/architecture.md) | Logical architecture |
 | [docs/semantic-lineage-model.md](docs/semantic-lineage-model.md) | Minimal lineage unit |
