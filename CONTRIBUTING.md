@@ -20,6 +20,10 @@ Open or broaden discussion **before merging** materially normative wording when:
 - The same editorial decision appears **misaligned across partner repositories** (spec versus docs/tooling narration), signalling an intent vs captured-result gap worth reconciling explicitly.
 - A change would reshape **`kotonoha.interchange.v1`**-shaped artifacts or tooling validation paths exercised by **`kotonoha-cli` CI**—coordinate with downstream traceability tracked in governance notes ([`repository-governance.md`](repository-governance.md)).
 
+### RDE-style review triggers (informative, Phase 3 W-1)
+
+Beyond the bullets above, prefer opening or widening discussion **early** when work touches **multi-repository normative posture**, **interchange-shaped artifacts**, or **CLI exit-code / validation meaning**—even if the eventual merge is only in this repository. **PR checklist fields are recommended** until the meta-track [kotonoha-management#34](https://github.com/zyx-corporation/kotonoha-management/issues/34) converges on which trace rows are mandatory.
+
 ## Workflow
 
 1. Open an **Issue** describing the spec gap or erratum.
