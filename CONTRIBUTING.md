@@ -34,6 +34,10 @@ Beyond the bullets above, prefer opening or widening discussion **early** when w
 
 Reviewers should verify alignment with Phase 1 scope in [`docs/introduction.md`](docs/introduction.md) and check loss/deviation/human-accountability clauses where relevant. When **RDE category shapes** or JSON validation expectations would change in [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core), flag follow-up for **[`unit_testing_guidelines.md`](https://github.com/zyx-corporation/kotonoha-core/blob/main/docs/unit_testing_guidelines.md)** (and `spec-traceability`) or open a linked issue there before merging if behaviour must move ahead of spec text.
 
+### Partner implementation PRs (**M3.5 / P3-5b**, informative)
+
+**[`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core)** and **[`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli)** pull requests SHOULD link an open **`kotonoha-spec` Issue or PR** when they alter observable interchange validation (`kotonoha.interchange.v1` / `console_event`), **CLI exit semantics** surfaced in **`cli-definition`**, or other behaviour this repository’s **`docs/`** normative prose is intended to constrain. Prefer **specific spec Issues** tied to each change; for cross-cutting escalation themes use rollup **[Issue #25](https://github.com/zyx-corporation/kotonoha-spec/issues/25)** (Phase 3 M3.5 index).
+
 ## License
 
 Unless stated otherwise in a file, contributions are accepted under the same terms as the repository ([Apache License 2.0](LICENSE)).
