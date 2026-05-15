@@ -9,6 +9,7 @@ English is the **primary normative language** for documents in this directory. J
 | [documentation-content-specification.md](documentation-content-specification.md) | Concrete document classes, placement inventory, and migration rules | **Informative — documentation governance** |
 | [requirements-overview.md](requirements-overview.md) | Kotonoha system requirements overview, full architecture picture, and use cases | **Informative** |
 | [kotonoha-backend-minimum-requirements.md](kotonoha-backend-minimum-requirements.md) | Kotonoha backend minimum requirements draft for MeaningEvent / RDE / Policy Boundary flow | **Informative draft — future normative candidate** |
+| [meaning-event-schema.md](meaning-event-schema.md) | Minimal MeaningEvent schema draft | **Informative draft — future normative candidate** |
 | [git_operation_rules.md](git_operation_rules.md) | Git/Issue/branch/PR workflow (Japanese) | **Informative — process** |
 
 ## Phase 1 — Public specification MVP (bundle **0.1**)
