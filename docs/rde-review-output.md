@@ -4,9 +4,13 @@
 
 An **RDE review output** is a structured interchange record capturing observations about a **subject** (for example a document revision, patch proposal, or design decision artifact). It operationalizes RDE without relying on metaphor alone.
 
+An RDE review output supports later review. It records observations that may be accepted, contested, deferred, or revised by human or institutional review; it is not itself final semantic authority.
+
 ## SLS-4.2 Subject reference
 
 Each RDE review output **MUST** identify the **subject** under review with a **subject_ref** string. Implementations **SHOULD** use a URI or URI-reference resolvable within their deployment context.
+
+When source context materially affects the observations, implementations **SHOULD** preserve references to that context in the output record or in correlated lineage or audit records.
 
 ## SLS-4.3 Observation categories
 
@@ -55,6 +59,22 @@ Implementations **MAY** add implementation-specific keys inside category items.
 ### SLS-4.4.1 Empty categories
 
 Empty arrays **MUST** be treated as “no items reported for this category,” not as syntactic errors.
+
+### SLS-4.4.2 Reviewability metadata
+
+Category items **SHOULD** include reviewability metadata when it is available and materially affects later inspection, contestation, or revision of an observation.
+
+Possible metadata includes:
+
+| Field | Meaning |
+| --- | --- |
+| `evidence_ref` | Reference to source spans, lineage units, commits, issues, pull requests, or other review evidence. |
+| `source_context_status` | Whether source context was supplied, resolved, inferred, partial, missing, or contested. |
+| `confidence_note` | Human-readable note about uncertainty, limits, or context dependence. |
+| `reviewer_note` | Human or implementation note for later review. |
+| `decision_ref` | Reference to a later human or institutional decision, when recorded elsewhere. |
+
+These fields remain optional in Phase 1. Their absence **MUST NOT** be interpreted as proof that no uncertainty, missing context, or limitation exists. Their presence **MUST NOT** be interpreted as final approval, rejection, publication authorization, or policy enforcement.
 
 ## SLS-4.5 Machine-readable serialization
 
