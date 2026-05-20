@@ -22,13 +22,19 @@ The key words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, **MAY**, and *
 
 **SLS** denotes the family of structures and processes for recording **semantic lineage**: how meaning is preserved, transformed, complemented, left unresolved, lost, or exposed to deviation risk across changes—not merely string or token deltas.
 
+SLS does not claim to preserve meaning as a fixed object. Instead, SLS preserves the traceability, contestability, and reviewability of meaning-relevant change across lineage units, review outputs, and human or institutional decisions.
+
 ### SLS-1.4.2 Kotonoha
 
 **Kotonoha** names the institutional framing of SLS within this ecosystem (policies, specifications, and implementations). **Implementations MUST NOT treat “Kotonoha” as only a product nickname** when interpreting obligations that refer to semantic lineage or accountability.
 
+Kotonoha is the ecosystem framing for SLS; it is **not** itself a claim that RDE automation is complete, authoritative, or sufficient for final semantic judgment.
+
 ### SLS-1.4.3 Semantic lineage
 
 **Semantic lineage** is the directed, inspectable relationship among **lineage units** (see [SLS-3](semantic-lineage-model.md)) that records meaning-relevant provenance and change.
+
+Semantic lineage is different from ordinary logging. A change log may record that something happened; semantic lineage records enough structured relationship for reviewers to inspect what meaning-relevant intent, scope, uncertainty, responsibility, tension, loss, or risk was carried forward, altered, or left unresolved.
 
 ### SLS-1.4.4 RDE review
 
@@ -37,6 +43,18 @@ The key words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, **MAY**, and *
 ### SLS-1.4.5 ΔM (semantic change)
 
 **ΔM** denotes a semantic change—shift in intent, scope, tension, or value—not equivalent to a raw text diff. Specifications MAY reference ΔM when contrasting semantic change from lexical change.
+
+### SLS-1.4.6 Source context
+
+**Source context** denotes the prior material, stated intent, lineage references, review notes, issue or pull-request context, or institutional constraints used to interpret a change. Source context is not assumed to be self-evident or singular. Implementations **SHOULD** preserve traceability to source context when it materially affects semantic lineage or RDE observations.
+
+When source context is partial, contested, or unavailable, implementations **SHOULD NOT** overstate preservation, loss, or deviation conclusions as if the source were fully settled.
+
+### SLS-1.4.7 Reviewability
+
+**Reviewability** means that a human or institutional reviewer can inspect the relevant lineage relation, RDE observations, source context references, and recorded decisions sufficiently to challenge, accept, defer, or revise a semantic-change judgment.
+
+Reviewability is weaker than automatic correctness. A conforming Phase 1 implementation may assist review without guaranteeing that every semantic change is fully or finally evaluated.
 
 ## SLS-1.5 Figures *(informative only)*
 
@@ -104,6 +122,7 @@ Skip back to definitions in Introduction as needed for terminology anchored abov
 - Requirements for explicit representation of **loss** of semantic elements.
 - Expectations for correlating RDE outputs with **audit trails** at an abstract level.
 - Minimal RDE implementation responsibilities.
+- Boundary language for source context, semantic traceability, reviewability, and human accountability.
 
 ### SLS-1.6.2 Out of scope for Phase 1
 
@@ -111,6 +130,9 @@ Skip back to definitions in Introduction as needed for terminology anchored abov
 - Concrete network protocols, RPC signatures, or storage engines.
 - Product-specific UI specifications.
 - Specific LLM, SLM, rule engine, classifier, model weight, or prompt requirements for RDE implementations.
+- Claims that meaning can be fully preserved as a fixed object.
+- Claims that automated RDE output is a final semantic judgment, approval, rejection, or publication authorization.
+- Full multimodal semantic-change evaluation for images, audio, video, or other non-textual artifacts.
 
 ## SLS-1.7 Public boundary
 
@@ -119,6 +141,8 @@ Normative documents **MUST NOT** require readers to access **private** repositor
 ## SLS-1.8 Human accountability
 
 Automated tools, including future RDE implementations, **MUST NOT** be normatively specified as replacing human judgment, approval, or accountability for publication and design decisions. Tools **MAY** assist observation and recording.
+
+Human accountability includes the ability to accept, reject, defer, reopen, or contest a semantic-change judgment. SLS artifacts and RDE review outputs may inform that process, but they do not by themselves settle responsibility.
 
 ## SLS-1.9 Phase 1 document map
 
