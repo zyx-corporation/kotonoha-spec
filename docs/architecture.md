@@ -17,6 +17,8 @@ The following table summarizes the concepts used by this architecture document. 
 | **Semantic lineage** | Directed, inspectable relationship among lineage units | [SLS-1.4.3](introduction.md) |
 | **Lineage unit** | Minimal persisted subject of semantic lineage | [SLS-3](semantic-lineage-model.md) |
 | **Memory layer** | Implementation substrate that stores lineage units, prior RDE outputs, source references, and audit correlation data without replacing the lineage model itself | [SLS-3](semantic-lineage-model.md), [SLS-7](audit-trail-relationship.md) |
+| **Source context** | Prior material, stated intent, review notes, issue context, or institutional constraints used to interpret semantic change | [SLS-1.4.6](introduction.md) |
+| **Reviewability** | Ability for human or institutional reviewers to inspect and contest semantic-change judgments | [SLS-1.4.7](introduction.md) |
 | **ΔM** | Meaning-relevant change, distinct from raw textual diff | [SLS-1.4.5](introduction.md) |
 | **RDE review** | Structured observation of semantic deviation using RDE categories | [SLS-4](rde-review-output.md) |
 | **RDE implementation** | Component or workflow that produces, validates, or manages RDE observations while preserving human authority boundaries | [SLS-5](rde-implementation-specification.md) |
@@ -110,11 +112,30 @@ flowchart LR
 
 Phase 1 specifies **structural and documentary obligations**. It does **not** specify threat models, authentication, or availability targets (future phases MAY extend the specification).
 
+Implementations **MUST NOT** use SLS conformance language to imply that they preserve meaning as a fixed object or that their automated review is final. They **MAY** claim support for semantic traceability, reviewability, and structured RDE observation when they satisfy the corresponding obligations.
+
 ## SLS-2.6 Traceability
 
 Implementations **SHOULD** maintain explicit references (for example section identifiers) between behavior and the relevant normative sections in this repository.
 
-## SLS-2.7 Implementation structuring *(informative only)*
+## SLS-2.7 Role boundaries
+
+The following table is normative for boundary interpretation, but does not mandate deployment topology. Implementations MAY combine roles internally only if externally visible behavior preserves these boundaries.
+
+| Role | Primary responsibility | Boundary |
+| --- | --- | --- |
+| Kotonoha framing | Names and governs the ecosystem of SLS specifications, policies, and implementations | Does not itself prove that any implementation is complete or authoritative |
+| Lineage representation | Persists lineage units and semantic relationships | Must not collapse semantic lineage into ordinary logs or raw diffs |
+| Memory layer | Stores or retrieves lineage units, source references, prior RDE outputs, loss observations, and audit-correlation identifiers | Does not define semantic lineage by itself and does not authorize decisions |
+| Subject adapter | Prepares review subjects such as documents, patches, decisions, or generated artifacts | Must not treat the adapter’s extracted material as the complete semantic subject when context is materially missing |
+| Context provider | Supplies source context and prior state for review | Should surface missing, partial, or contested context rather than hiding it |
+| RDE implementation | Produces, validates, or manages structured RDE observations | Must not claim final approval, rejection, publication authority, or policy enforcement by itself |
+| Generator | Produces or transforms content, code, documentation, or design artifacts | Must not be treated as its own independent evaluator for conformance purposes |
+| Console or UI | Presents lineage, RDE observations, context, and decisions to reviewers | Must not make an automated observation appear to be final human or institutional approval |
+| Human or institutional review | Accepts, rejects, defers, reopens, or contests semantic-change judgments | Remains accountable for final publication, approval, or design decisions |
+| Policy or safety engine | Enforces external policy, access, safety, or refusal decisions | Distinct from RDE observation, though it may consume RDE outputs |
+
+## SLS-2.8 Implementation structuring *(informative only)*
 
 Phase 1 **does not** mandate repository layout, module shapes, or the use of object-oriented **design patterns** in code.
 
@@ -129,7 +150,7 @@ The following **evolution signals** MAY warrant implementer-side **refactoring**
 
 Prefer idiomatic structure in each language (e.g. Rust: traits, enums, composition). Internal engineering mirrors MAY expand on timing; they are **not** normative here.
 
-## SLS-2.8 Reference interchange *(informative only)*
+## SLS-2.9 Reference interchange *(informative only)*
 
 OSS implementations MAY attach conformance metadata via the **`kotonoha.interchange.v1`** vocabulary defined in **[`src/interchange.rs`](https://github.com/zyx-corporation/kotonoha-core/blob/main/src/interchange.rs)** in **`kotonoha-core`**. This format guides validators and tooling; when it diverges from normative wording in Phase 1, **the Phase 1 English documents prevail** until superseded according to [SLS-8](versioning.md).
 
