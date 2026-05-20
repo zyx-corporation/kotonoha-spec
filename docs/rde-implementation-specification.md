@@ -29,6 +29,7 @@ This document covers:
 - category classification obligations;
 - validation boundaries;
 - memory-layer and audit-correlation interactions;
+- source-context and partial-context handling;
 - human-authority boundaries.
 
 ### SLS-5.2.2 Out of scope
@@ -39,7 +40,8 @@ This document does not mandate:
 - model weights or prompts;
 - latency, throughput, cost, or hosting topology;
 - full JSON Schema for every internal feature;
-- replacement of policy engines, safety filters, or human review.
+- replacement of policy engines, safety filters, or human review;
+- automatic final determination of complete source meaning for every subject.
 
 ## SLS-5.3 Implementation roles
 
@@ -55,11 +57,15 @@ A subject adapter prepares the item under review for RDE evaluation. Examples in
 
 An implementation **SHOULD** preserve a stable `subject_ref` when one is available.
 
+A subject adapter **MUST NOT** treat the adapter's extracted representation as the complete semantic subject when materially relevant source context is missing or contested.
+
 ### SLS-5.3.3 Context provider
 
 A context provider supplies optional prior material such as previous lineage units, source text, issue context, prior RDE outputs, or audit references.
 
 An implementation **MAY** operate with partial context, but it **SHOULD** surface material uncertainty or missing context in observations when that absence affects review quality.
+
+A context provider **SHOULD** preserve references to human-provided intent statements, issue discussions, prior lineage units, or institutional constraints when they materially shape the source context.
 
 ### SLS-5.3.4 Output validator
 
@@ -94,6 +100,8 @@ Context may include:
 - prior RDE output;
 - audit correlation identifiers.
 
+Context assembly **SHOULD** distinguish supplied source context from inferred source context. When inference is used, the implementation **SHOULD** keep the inferred material inspectable or summarize its uncertainty in the RDE observations.
+
 ### SLS-5.4.3 Semantic observation
 
 The implementation observes candidate semantic changes. It **MUST NOT** reduce semantic change to raw lexical difference alone.
@@ -102,7 +110,9 @@ Semantic observation may consider:
 
 - intent preservation;
 - scope changes;
+- uncertainty shifts;
 - responsibility shifts;
+- value or institutional tension;
 - unresolved tension;
 - loss of ambiguity or rationale;
 - added assumptions;
@@ -156,6 +166,19 @@ When prior state is not available, the implementation **SHOULD** avoid overstati
 
 Human-provided context, such as intent statements or review notes, **MAY** be used as review input. Implementations **SHOULD** preserve traceability to such context when it materially affects observations.
 
+### SLS-5.5.4 Source construction
+
+Source context is constructed from available references; it is not assumed to be complete, singular, or automatically settled.
+
+An RDE implementation **SHOULD** distinguish at least the following situations when materially relevant:
+
+- source context supplied directly by the caller;
+- source context resolved from lineage records or repository references;
+- source context inferred by the implementation;
+- source context missing, partial, or contested.
+
+When source context is inferred, partial, or contested, the implementation **SHOULD** avoid reporting `preserved`, `lost`, or `deviation_risk` as final conclusions without qualification. It may instead record the issue as `intentionally_unresolved`, `deviation_risk`, or a qualified observation item.
+
 ## SLS-5.6 Output requirements
 
 ### SLS-5.6.1 Required output shape
@@ -172,6 +195,7 @@ Observation items **MAY** include:
 - source spans;
 - confidence notes;
 - reviewer notes;
+- source-context status;
 - implementation-specific metadata.
 
 Implementation-specific metadata **MUST NOT** be required to understand the minimum RDE categories.
@@ -189,6 +213,7 @@ An implementation **MAY** store or retrieve:
 - prior RDE outputs;
 - lineage unit references;
 - subject references;
+- source-context references;
 - loss observations;
 - audit-correlation identifiers.
 
@@ -201,6 +226,7 @@ When an implementation maintains audit trails, it **SHOULD** preserve a correlat
 - the review subject;
 - the RDE review output;
 - related lineage units;
+- source-context references, when material;
 - human decisions or approvals;
 - audit records.
 
@@ -211,6 +237,8 @@ Audit correlation **MUST NOT** imply that RDE output alone authorizes or rejects
 An RDE implementation **MUST NOT** present itself as replacing human judgment, approval, rejection, publication responsibility, or institutional accountability.
 
 An RDE implementation **MAY** assist human review by surfacing observations, missing context, loss, or drift risk.
+
+An implementation **SHOULD** support review reopening or contestation by preserving enough traceability for a later reviewer to challenge or revise the recorded observation.
 
 ## SLS-5.10 Policy and safety boundary
 
@@ -227,6 +255,7 @@ An implementation claiming conformance to this RDE implementation specification 
 - how it maps observations to RDE categories;
 - how it emits or validates RDE review output;
 - how it preserves traceability;
+- how it distinguishes supplied, resolved, inferred, missing, or contested source context when material;
 - which parts are automated and which require human review.
 
 ## SLS-5.12 Informative implementation patterns
