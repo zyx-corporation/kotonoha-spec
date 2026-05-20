@@ -26,6 +26,7 @@ Phase 1 の規範仕様文書には、`SLS-1.4.4` や `SLS-5.4.3` のような�
 | SLS-4 | [rde-review-output.md](rde-review-output.md) | **規範**／RDE カテゴリ interchange |
 | SLS-5 | [rde-implementation-specification.md](rde-implementation-specification.md) | **規範**／RDE 実装責務と境界 |
 | SLS-5-ja | [rde-implementation-specification_ja.md](rde-implementation-specification_ja.md) | **参考（日本語 companion）**／正は `rde-implementation-specification.md` |
+| SLS-ja-note | [rde-boundary-notes_ja.md](rde-boundary-notes_ja.md) | **参考（日本語補助）**／RDE 境界・source context・reviewability の要点 |
 | SLS-6 | [representation-of-loss.md](representation-of-loss.md) | **規範**／喪失の表現要求 |
 | SLS-7 | [audit-trail-relationship.md](audit-trail-relationship.md) | **規範**／監査との関係 |
 | SLS-8 | [versioning.md](versioning.md) | **規範**／版管理・互換変更 |
@@ -34,7 +35,7 @@ Phase 1 の規範仕様文書には、`SLS-1.4.4` や `SLS-5.4.3` のような�
 
 **SLS-1 → SLS-2 → SLS-3 → SLS-4 → SLS-5 → SLS-6 → SLS-7 → SLS-8** の順で読むことを推奨します。
 
-用語だけ先に済ませるなら [introduction_ja](introduction_ja.md) を、論理責務を視覚的に把握するなら [architecture_ja](architecture_ja.md) を参照できます。
+用語だけ先に済ませるなら [introduction_ja](introduction_ja.md) を、論理責務を視覚的に把握するなら [architecture_ja](architecture_ja.md) を参照できます。RDE 境界の要点を日本語で確認する場合は [rde-boundary-notes_ja](rde-boundary-notes_ja.md) を参照してください。
 
 **喪失表現と interchange の追跡:** [Issue **#3**](https://github.com/zyx-corporation/kotonoha-spec/issues/3)
 
