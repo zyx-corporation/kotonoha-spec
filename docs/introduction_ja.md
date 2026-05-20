@@ -10,6 +10,8 @@
 
 **Semantic Lineage System（SLS）** を対象とする Phase 1 公開バンドルの **適用範囲・用語・適合の言語**を示す。**実装すべきレビューパックの下限**になるが、すべてのフィールド詳細まで固定しない。
 
+SLS は、意味そのものを固定物として完全保存する仕組みではありません。SLS が保持しようとするのは、意味に関わる変化について、後から追跡・異議申し立て・再審できる関係と記録です。
+
 ---
 
 ## 規範テキストの所在
@@ -26,11 +28,13 @@
 
 ## 用語ノート（要約）
 
-- **SLS** … 「意味の系譜」（保存・変換・補完・未解決・喪失・逸脱など）を、文字単位の差分だけとは限らずに記録する仕組みの総称。**[詳細・規範文は英文 Introduction](introduction.md)**。
-- **Kotonoha** … 本エコシステムで SLS を制度として名付ける側面（ポリシー／仕様／実装）。
-- **意味の系譜（semantic lineage）** … **[`semantic-lineage-model.md`](semantic-lineage-model.md)** の **lineage unit** とその関係。
+- **SLS** … 「意味の系譜」（保存・変換・補完・未解決・喪失・逸脱など）を、文字単位の差分だけとは限らずに記録する仕組みの総称。意味の固定保存ではなく、意味変化の traceability / contestability / reviewability を扱う。
+- **Kotonoha** … 本エコシステムで SLS を制度として名付ける側面（ポリシー／仕様／実装）。Kotonoha という名称だけで、RDE 自動化が完成済み・権威的・十分であるとはみなさない。
+- **意味の系譜（semantic lineage）** … **[`semantic-lineage-model.md`](semantic-lineage-model.md)** の **lineage unit** とその関係。通常のログや raw diff とは異なり、意図・射程・不確実性・責任・張力・喪失・逸脱リスクがどう扱われたかを後から検査できるようにする。
 - **RDE review** … 観測カテゴリと interchange 上の論理構造。**[詳細・規範は `rde-review-output.md`](rde-review-output.md)** が正。
 - **ΔM** … 意味の変化（意図・射程・張力など）を指すときの便宜的記号。字句差分とは同一視しない。
+- **Source context** … 変更を解釈するための先行資料、意図、lineage reference、review note、issue / PR context、制度的制約など。単一・完全・自明とは限らない。
+- **Reviewability** … 人間または制度的 reviewer が、lineage relation、RDE observation、source context reference、decision record を点検し、受容・異議申し立て・保留・修正できること。
 
 ---
 
@@ -83,9 +87,10 @@ flowchart TB
 flowchart LR
     FA[architecture] --> FB[semantic-lineage-model]
     FB --> FC[rde-review-output]
-    FC --> FD[representation-of-loss]
-    FD --> FE[audit-trail-relationship]
-    FE --> FF[versioning]
+    FC --> FD[rde-implementation]
+    FD --> FE[representation-of-loss]
+    FE --> FF[audit-trail-relationship]
+    FF --> FG[versioning]
 ```
 
 用語確認は **`introduction.md`（または本ページの用語ノート）へ戻って**問題ありません。
@@ -94,9 +99,10 @@ flowchart LR
 
 ## Applicability／公開境界／説明責任（ひとこと）
 
-- **適用**: [英文 § Applicability](introduction.md)。
+- **適用**: [英文 § Applicability](introduction.md)。Phase 1 では source context、semantic traceability、reviewability、人間の説明責任に関する境界も扱う。
+- **対象外**: 意味の完全保存、RDE 出力による最終判断、画像・音声・動画などの完全な multimodal semantic-change evaluation は Phase 1 の対象外。
 - **公開境界**: 仕様読解に **非公開リポジトリ等を要求しない**。
-- **人間**: 自動化ツールは **規範上、人間の判断・承認・説明責任を置き換えない** ([§ Human accountability](introduction.md))。
+- **人間**: 自動化ツールは **規範上、人間の判断・承認・説明責任を置き換えない** ([§ Human accountability](introduction.md))。SLS artifact や RDE review output は判断材料であり、責任そのものを決着させるものではない。
 
 ---
 
