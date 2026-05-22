@@ -18,7 +18,7 @@
 
 規範本文は **`docs/` 配下の英語**。日本語での入口と読順の補助は以下を用意しています。
 
-- **[索引（日本語・参考）… `README_ja.md`](docs/README_ja.md)** — Phase 1 ファイル対応一覧・推奨読順への誘導
+- **[索引（日本語・参考）… `README_ja.md`](docs/README_ja.md)** — Phase 1/2 ファイル対応一覧・推奨読順（SLS-3〜9 の `*_ja.md` companion 含む）
 - **[はじめに（日本語要約・図）… `introduction_ja.md`](docs/introduction_ja.md)** — 規範は英語 **[`introduction.md`](docs/introduction.md)**
 - **[アーキテクチャ論理参考（日本語図付き）… `architecture_ja.md`](docs/architecture_ja.md)** — 規範は英語 **[`architecture.md`](docs/architecture.md)**
 - **[Phase / Milestone 定義（日本語）… `phase-and-milestone-definition_ja.md`](docs/phase-and-milestone-definition_ja.md)** — 規範は英語 **[`phase-and-milestone-definition.md`](docs/phase-and-milestone-definition.md)**（informative・ロードマップ整合）
