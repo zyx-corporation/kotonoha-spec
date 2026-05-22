@@ -159,6 +159,9 @@ MilestoneはPhaseを支えることがあるが、Milestoneが完了しても、
 | M5 | AgentRun gateway | agent context、capability check、MCP/gateway route、agent-scoped MeaningDelta | `kotonoha-cli`, `kotonoha-core`, `kotonoha-mcp`, `kotonoha-gateway` |
 | M6 | Team / principal mode | principal、project、role-based operational scoping | `kotonoha-cli`, `kotonoha-core`, gateway repos |
 | M7 | Team-mode UI | project-scoped viewing/exportのためのweb-consoleまたはeditor surface。通常、writeまたはexportをCLI/core pathへ委譲する | `kotonoha-web-console`, `kotonoha-vscode` |
+| M4 | GitHub Issue/PR 相関 | MeaningDelta と Issue/PR のリンク（監査証跡。normative プロトコルではない） | `kotonoha-cli`, `kotonoha-core` |
+
+**M4 完了（2026-05）:** M1〜M4 は実装マイルストーンであり **仕様 Phase ではない**。公開 Phase 2 normative は **SLS-9**。GitHub テーブルは [#25](https://github.com/zyx-corporation/kotonoha-spec/issues/25) 経由で昇格しない限り implementation artifact。
 
 Milestone番号はimplementation-roadmap labelである。Specification conformanceを主張するときに、SLS section identifierの代替として用いてはならない。
 
