@@ -113,6 +113,7 @@ A **Gate** is a decision point where deferred work is either:
 **Exit criteria:**
 
 - deferred loss modeling has a public normative proposal or is explicitly kept informative;
+- interim loss encoding via [SLS-6.5](representation-of-loss.md#sls-65-interim-encoding-phase-3-gate--2026-05) is published; fuller modeling is tracked under [issue #3](https://github.com/zyx-corporation/kotonoha-spec/issues/3) (child of rollup [issue #25](https://github.com/zyx-corporation/kotonoha-spec/issues/25));
 - richer semantic objects are versioned and correlated with Phase 1 lineage and RDE outputs;
 - implementation-side Phase 3 wrappers do not silently redefine SLS normative interchange.
 
@@ -148,8 +149,8 @@ The following milestones are descriptive checkpoints. They are not normative req
 | --- | --- | --- | --- |
 | M1 | Workspace and lineage foundation | Git workspace, project context, database-backed MeaningDelta and review-decision primitives | `kotonoha-cli`, `kotonoha-core` |
 | M2 | RDE metadata and export | RDE assessment metadata, validation report persistence, export formats | `kotonoha-cli`, `kotonoha-core` |
-| M3 | Console / event ingest preparation | Transport wrappers, console-equivalent events, or minimal editor UI that delegate to existing RDE/interchange validation | `kotonoha-cli`, `kotonoha-vscode`, future console repos |
-| M3.5 | Normative backlog linkage | Public rollup issues for themes that may become normative later | `kotonoha-spec` |
+| M3 | Console / event ingest preparation | Transport wrappers, console-equivalent events, or minimal editor UI that delegate to existing RDE/interchange validation | `kotonoha-cli`, `kotonoha-vscode` (IDE-focused; team web console is **M7** in [`kotonoha-web-console`](https://github.com/zyx-corporation/kotonoha-web-console)) |
+| M3.5 | Normative backlog linkage | Public rollup for themes that may become normative later — [issue #25](https://github.com/zyx-corporation/kotonoha-spec/issues/25) | `kotonoha-spec` |
 | M4 | External tool correlation | GitHub Issue/PR correlation and related audit references | `kotonoha-cli`, `kotonoha-core` |
 | M5 | AgentRun gateway | Agent context, capability checks, MCP/gateway routes, agent-scoped MeaningDelta | `kotonoha-cli`, `kotonoha-core`, `kotonoha-mcp`, `kotonoha-gateway` |
 | M6 | Team / principal mode | principal, project, and role-based operational scoping | `kotonoha-cli`, `kotonoha-core`, gateway repos |

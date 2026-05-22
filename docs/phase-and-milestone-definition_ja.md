@@ -113,6 +113,7 @@ MilestoneはPhaseを支えることがあるが、Milestoneが完了しても、
 **Exit criteria:**
 
 - 後送されたloss modelingが、公開normative proposalを持つか、明示的にinformativeとして維持されている。
+- 当面のloss encodingは [SLS-6.5](representation-of-loss.md#sls-65-interim-encoding-phase-3-gate--2026-05) で公開済み。より網羅的なmodelingは [issue #3](https://github.com/zyx-corporation/kotonoha-spec/issues/3)（rollup [issue #25](https://github.com/zyx-corporation/kotonoha-spec/issues/25) の子）で追跡する。
 - より豊かなsemantic objectがversion管理され、Phase 1 lineageおよびRDE outputとcorrelateされている。
 - implementation側のPhase 3 wrapperが、SLS normative interchangeを黙って再定義していない。
 
@@ -148,8 +149,8 @@ MilestoneはPhaseを支えることがあるが、Milestoneが完了しても、
 | --- | --- | --- | --- |
 | M1 | Workspace and lineage foundation | Git workspace、project context、database-backed MeaningDelta、review-decision primitives | `kotonoha-cli`, `kotonoha-core` |
 | M2 | RDE metadata and export | RDE assessment metadata、validation report persistence、export formats | `kotonoha-cli`, `kotonoha-core` |
-| M3 | Console / event ingest preparation | 既存RDE/interchange validationへ委譲するtransport wrapper、console-equivalent event、minimal editor UI | `kotonoha-cli`, `kotonoha-vscode`, future console repos |
-| M3.5 | Normative backlog linkage | 将来normative化され得るthemeのpublic rollup issue | `kotonoha-spec` |
+| M3 | Console / event ingest preparation | 既存RDE/interchange validationへ委譲するtransport wrapper、console-equivalent event、minimal editor UI | `kotonoha-cli`, `kotonoha-vscode`（IDE中心。チーム向けWeb Consoleは **M7** の [`kotonoha-web-console`](https://github.com/zyx-corporation/kotonoha-web-console)） |
+| M3.5 | Normative backlog linkage | 将来normative化され得るthemeのpublic rollup — [issue #25](https://github.com/zyx-corporation/kotonoha-spec/issues/25) | `kotonoha-spec` |
 | M4 | External tool correlation | GitHub Issue/PR correlationと関連audit reference | `kotonoha-cli`, `kotonoha-core` |
 | M5 | AgentRun gateway | agent context、capability check、MCP/gateway route、agent-scoped MeaningDelta | `kotonoha-cli`, `kotonoha-core`, `kotonoha-mcp`, `kotonoha-gateway` |
 | M6 | Team / principal mode | principal、project、role-based operational scoping | `kotonoha-cli`, `kotonoha-core`, gateway repos |
