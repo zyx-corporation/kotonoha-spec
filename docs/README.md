@@ -25,12 +25,17 @@ Phase 1 specification documents use stable hierarchical section identifiers: `SL
 | SLS-2 | [architecture.md](architecture.md) | Logical architecture and component responsibilities | Normative (Phase 1) |
 | SLS-2-ja | [architecture_ja.md](architecture_ja.md) | Architecture (JA summary companion with figures) | **Informative — Japanese only** |
 | SLS-3 | [semantic-lineage-model.md](semantic-lineage-model.md) | Minimal lineage unit and identifiers | Normative (Phase 1) |
+| SLS-3-ja | [semantic-lineage-model_ja.md](semantic-lineage-model_ja.md) | Semantic lineage model (JA companion) | **Informative — Japanese only** |
 | SLS-4 | [rde-review-output.md](rde-review-output.md) | RDE categories and minimal interchange record | Normative (Phase 1) |
+| SLS-4-ja | [rde-review-output_ja.md](rde-review-output_ja.md) | RDE review output (JA companion) | **Informative — Japanese only** |
 | SLS-5 | [rde-implementation-specification.md](rde-implementation-specification.md) | RDE implementation responsibilities and boundaries | Normative (Phase 1 implementation profile) |
 | SLS-5-ja | [rde-implementation-specification_ja.md](rde-implementation-specification_ja.md) | RDE implementation specification (JA companion) | **Informative — Japanese only** |
 | SLS-6 | [representation-of-loss.md](representation-of-loss.md) | Requirements for representing lost semantic elements | Normative (Phase 1) |
+| SLS-6-ja | [representation-of-loss_ja.md](representation-of-loss_ja.md) | Representation of loss (JA companion) | **Informative — Japanese only** |
 | SLS-7 | [audit-trail-relationship.md](audit-trail-relationship.md) | Relationship between RDE outputs and audit trails | Normative (Phase 1) |
+| SLS-7-ja | [audit-trail-relationship_ja.md](audit-trail-relationship_ja.md) | Audit trail relationship (JA companion) | **Informative — Japanese only** |
 | SLS-8 | [versioning.md](versioning.md) | Specification versioning and evolution | Normative (Phase 1) |
+| SLS-8-ja | [versioning_ja.md](versioning_ja.md) | Versioning (JA companion) | **Informative — Japanese only** |
 
 ## Phase 2 — Interchange and schema hardening
 
@@ -39,6 +44,7 @@ Phase 2 promotes RDE validation hardening into public normative text without cha
 | Number | Document / artifact | Title | Status |
 | --- | --- | --- | --- |
 | SLS-9 | [phase2-interchange-hardening.md](phase2-interchange-hardening.md) | Phase 2 RDE validation profile | **Normative (Phase 2 validation profile)** |
+| SLS-9-ja | [phase2-interchange-hardening_ja.md](phase2-interchange-hardening_ja.md) | Phase 2 interchange hardening (JA companion) | **Informative — Japanese only** |
 | Schema | [../schemas/rde-review-output.phase2.schema.json](../schemas/rde-review-output.phase2.schema.json) | Phase 2 RDE review output minimum JSON Schema | **Normative schema artifact** |
 
 ### Recommended reading order
