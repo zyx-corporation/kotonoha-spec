@@ -32,18 +32,27 @@ Phase 1 specification documents use stable hierarchical section identifiers: `SL
 | SLS-7 | [audit-trail-relationship.md](audit-trail-relationship.md) | Relationship between RDE outputs and audit trails | Normative (Phase 1) |
 | SLS-8 | [versioning.md](versioning.md) | Specification versioning and evolution | Normative (Phase 1) |
 
+## Phase 2 — Interchange and schema hardening
+
+Phase 2 promotes RDE validation hardening into public normative text without changing the Phase 1 RDE review output `spec_version` value.
+
+| Number | Document / artifact | Title | Status |
+| --- | --- | --- | --- |
+| SLS-9 | [phase2-interchange-hardening.md](phase2-interchange-hardening.md) | Phase 2 RDE validation profile | **Normative (Phase 2 validation profile)** |
+| Schema | [../schemas/rde-review-output.phase2.schema.json](../schemas/rde-review-output.phase2.schema.json) | Phase 2 RDE review output minimum JSON Schema | **Normative schema artifact** |
+
 ### Recommended reading order
 
-New readers SHOULD follow **[SLS-1 → SLS-2 → SLS-3 → SLS-4 → SLS-5 → SLS-6 → SLS-7 → SLS-8]**, optionally returning to SLS-1 for definitions. Editors preparing pull requests SHOULD touch [SLS-8](versioning.md) whenever normative headings move, section identifiers change, or materially change wording.
+New readers SHOULD follow **[SLS-1 → SLS-2 → SLS-3 → SLS-4 → SLS-5 → SLS-6 → SLS-7 → SLS-8 → SLS-9]**, optionally returning to SLS-1 for definitions. Editors preparing pull requests SHOULD touch [SLS-8](versioning.md) whenever normative headings move, section identifiers change, or materially change wording.
 
 Public issue **[#3 — representation of lost elements](https://github.com/zyx-corporation/kotonoha-spec/issues/3)** tracks interchange encoding beyond the interim in [SLS-6.5](representation-of-loss.md#sls-65-interim-encoding-phase-3-gate--2026-05). Normative backlog rollup: [#25](https://github.com/zyx-corporation/kotonoha-spec/issues/25).
 
 ## Incremental work (explicitly deferred)
 
-- Full JSON Schema published for **all** interchange fields (beyond the minimal interchange record in [SLS-4](rde-review-output.md)).
-- Typed schemas that fix every optional lineage property enumerated in Phase 2+ increments.
+- Full JSON Schema published for **all** future interchange fields beyond the Phase 2 RDE review output minimum schema.
+- Typed schemas that fix every optional lineage property enumerated in later increments.
 - Wire-level APIs and network protocols (typically after interchange versioning stabilizes).
 - Authentication, tenancy, scalability, or threat-model obligations (planned for broader reliability phases referenced from [SLS-2](architecture.md)).
-- RDE implementation profiles for specific deployment environments, if needed later.
+- RDE implementation profiles for specific deployment environments beyond the Phase 2 validation profile, if needed later.
 
 See [SLS-8](versioning.md) for how incompatible changes are gated.
