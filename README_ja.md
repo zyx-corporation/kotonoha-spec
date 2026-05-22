@@ -21,6 +21,7 @@
 - **[索引（日本語・参考）… `README_ja.md`](docs/README_ja.md)** — Phase 1 ファイル対応一覧・推奨読順への誘導
 - **[はじめに（日本語要約・図）… `introduction_ja.md`](docs/introduction_ja.md)** — 規範は英語 **[`introduction.md`](docs/introduction.md)**
 - **[アーキテクチャ論理参考（日本語図付き）… `architecture_ja.md`](docs/architecture_ja.md)** — 規範は英語 **[`architecture.md`](docs/architecture.md)**
+- **[Phase / Milestone 定義（日本語）… `phase-and-milestone-definition_ja.md`](docs/phase-and-milestone-definition_ja.md)** — 規範は英語 **[`phase-and-milestone-definition.md`](docs/phase-and-milestone-definition.md)**（informative・ロードマップ整合）
 
 英語索引の正式版は **[`docs/README.md`](docs/README.md)**。CONTRIBUTING と CHANGELOG も **[英語ファイル](CONTRIBUTING.md)** が正となります。
 
