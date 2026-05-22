@@ -69,12 +69,27 @@ Possible metadata includes:
 | Field | Meaning |
 | --- | --- |
 | `evidence_ref` | Reference to source spans, lineage units, commits, issues, pull requests, or other review evidence. |
-| `source_context_status` | Whether source context was supplied, resolved, inferred, partial, missing, or contested. |
+| `source_context_status` | Whether source context was supplied, resolved, inferred, missing, partial, or contested; see [SLS-4.4.3](#sls-443-source-context-status-vocabulary). |
 | `confidence_note` | Human-readable note about uncertainty, limits, or context dependence. |
 | `reviewer_note` | Human or implementation note for later review. |
 | `decision_ref` | Reference to a later human or institutional decision, when recorded elsewhere. |
 
 These fields remain optional in Phase 1. Their absence **MUST NOT** be interpreted as proof that no uncertainty, missing context, or limitation exists. Their presence **MUST NOT** be interpreted as final approval, rejection, publication authorization, or policy enforcement.
+
+### SLS-4.4.3 Source context status vocabulary
+
+When `source_context_status` is present, its value **MUST** be one of the following closed vocabulary values:
+
+| Value | Meaning |
+| --- | --- |
+| `supplied` | Source context was directly provided by the caller, user, input record, or enclosing review request. |
+| `resolved` | Source context was mechanically resolved from explicit references, lineage records, repository references, or stable identifiers. |
+| `inferred` | Source context was added through implementation or reviewer inference rather than direct supply or mechanical resolution. |
+| `missing` | Material source context needed for stronger review is unavailable. |
+| `partial` | Some relevant source context is available, but material context remains incomplete. |
+| `contested` | Multiple plausible or asserted source-context interpretations conflict. |
+
+The `source_context_status` vocabulary is a **closed enum** for Phase 1. Implementations **MUST NOT** emit other values in output labeled compliant with SLS Phase 1 RDE interchange.
 
 ## SLS-4.5 Machine-readable serialization
 
