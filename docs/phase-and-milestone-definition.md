@@ -148,11 +148,12 @@ The following milestones are descriptive checkpoints. They are not normative req
 | --- | --- | --- | --- |
 | M1 | Workspace and lineage foundation | Git workspace, project context, database-backed MeaningDelta and review-decision primitives | `kotonoha-cli`, `kotonoha-core` |
 | M2 | RDE metadata and export | RDE assessment metadata, validation report persistence, export formats | `kotonoha-cli`, `kotonoha-core` |
-| M3 | Console / event ingest preparation | Transport wrappers or console-equivalent events that delegate to existing RDE/interchange validation | `kotonoha-cli`, future console repos |
+| M3 | Console / event ingest preparation | Transport wrappers, console-equivalent events, or minimal editor UI that delegate to existing RDE/interchange validation | `kotonoha-cli`, `kotonoha-vscode`, future console repos |
 | M3.5 | Normative backlog linkage | Public rollup issues for themes that may become normative later | `kotonoha-spec` |
 | M4 | External tool correlation | GitHub Issue/PR correlation and related audit references | `kotonoha-cli`, `kotonoha-core` |
-| M5 | AgentRun gateway | Agent context, capability checks, agent-scoped MeaningDelta | `kotonoha-cli`, `kotonoha-core`, gateway repos |
+| M5 | AgentRun gateway | Agent context, capability checks, MCP/gateway routes, agent-scoped MeaningDelta | `kotonoha-cli`, `kotonoha-core`, `kotonoha-mcp`, `kotonoha-gateway` |
 | M6 | Team / principal mode | principal, project, and role-based operational scoping | `kotonoha-cli`, `kotonoha-core`, gateway repos |
+| M7 | Team-mode UI | web-console or editor surfaces for project-scoped viewing and export, normally delegating writes or exports to CLI/core paths | `kotonoha-web-console`, `kotonoha-vscode` |
 
 Milestone numbers are implementation-roadmap labels. They MUST NOT be used as substitutes for SLS section identifiers when claiming specification conformance.
 
@@ -163,11 +164,11 @@ Milestone numbers are implementation-roadmap labels. They MUST NOT be used as su
 | Phase 1 | Public MVP, minimal reviewable SLS surface | M1/M2 may exercise parts of it | Normative in SLS-1 to SLS-8 |
 | Phase 2 | Interchange and schema hardening | M2 and validator work | Normative only when promoted into `kotonoha-spec` |
 | Phase 3 | Rich semantic modeling and transport wrappers | M3/M3.5 and loss-modeling work | Mixed; wrappers remain non-normative unless promoted |
-| Phase 4 | Consolidation and reliability governance | M4/M5/M6 and public governance work | Future; not yet normative unless explicitly added |
+| Phase 4 | Consolidation and reliability governance | M4/M5/M6/M7 and public governance work | Future; not yet normative unless explicitly added |
 
 ## 5. Current implementation alignment check
 
-This section records the alignment check performed when this document was introduced.
+This section records the alignment check performed when this document was introduced and subsequently extended to wrapper/UI repositories.
 
 ### 5.1 `kotonoha-core`
 
@@ -201,13 +202,72 @@ Remaining note:
 
 - CLI milestone labels such as M1, M2, M4, M5, and M6 are implementation roadmap labels. They should not be read as SLS specification phases.
 
-### 5.3 Known non-differences
+### 5.3 `kotonoha-mcp`
+
+Observed alignment:
+
+- `kotonoha-mcp` delegates tool execution to the official `kotonoha` CLI and does not execute arbitrary shell commands.
+- `kotonoha_rde_validate` delegates to `kotonoha rde validate --strict`, so Phase 1 RDE validation remains centralized in CLI/core.
+- Human review tools call `kotonoha review approve|hold|reject` on the human path only, without `--agent-run-id`.
+- The human review path clears `KOTONOHA_AGENT_RUN_ID` from child process environment.
+- The README now describes the management UX contract as implementation guidance, not as replacement normative SLS prose.
+- The README minimum CLI version has been raised to `kotonoha` 0.2.9+ so wrapper validation includes the current Phase 1 `source_context_status` closed-vocabulary behavior.
+
+Resolved discrepancy:
+
+- `docs/mcp-server-contract.md` previously described all review MCP tools as forbidden. The contract has been corrected: autonomous review with agent context remains forbidden, while human-path review tools are allowed only without agent context.
+
+Remaining note:
+
+- MCP resources such as `ui://kotonoha/rde-summary` and structured content payloads are UI/tooling surfaces. They do not redefine SLS normative interchange unless promoted in `kotonoha-spec`.
+
+### 5.4 `kotonoha-gateway`
+
+Observed alignment:
+
+- `kotonoha-gateway` exposes an HTTP surface over the same tool names as `kotonoha-mcp` and delegates to the official `kotonoha` CLI.
+- `docs/gateway-contract.md` restricts process spawning to the gateway CLI delegation module and forbids arbitrary shell, direct `git`, direct `gh`, and autonomous review with agent context.
+- Gateway environment variables map API keys to principals/projects and pass `KOTONOHA_PRINCIPAL_ID` / `KOTONOHA_PROJECT_ID` to child CLI processes for M6 behavior.
+- The README now describes the management UX contract as implementation guidance, not as replacement normative SLS prose.
+- The README minimum CLI version has been raised to `kotonoha` 0.2.9+ so gateway validation includes the current Phase 1 `source_context_status` closed-vocabulary behavior.
+
+Remaining note:
+
+- Gateway OpenAPI routes and tool wrappers are implementation transport surfaces. They do not define new SLS normative wire protocol unless promoted in `kotonoha-spec`.
+
+### 5.5 `kotonoha-vscode`
+
+Observed alignment:
+
+- `kotonoha-vscode` is an editor UI over MeaningDelta, RDE assessment, and human review workflows.
+- It delegates operations to the configured `kotonoha` CLI through a single CLI helper path.
+- Its environment mapping passes `DATABASE_URL`, `KOTONOHA_DECIDED_BY`, `KOTONOHA_PRINCIPAL_ID`, and `KOTONOHA_PROJECT_ID` to child CLI processes when configured.
+- The README minimum CLI requirement has been raised to `kotonoha` 0.2.9+ and now states that current Phase 1 RDE validation requires a core revision with `source_context_status` validation.
+
+Remaining note:
+
+- VS Code UI panels, keybindings, and wireframes are implementation UX. They do not create additional SLS normative obligations.
+
+### 5.6 `kotonoha-web-console`
+
+Observed alignment:
+
+- `kotonoha-web-console` is currently documented as an M7 Team Mode minimal web console and read-only scaffold.
+- The server reads project and delta information from the database and delegates M6 export to the `kotonoha` CLI.
+- Project-scoped endpoints require `KOTONOHA_PRINCIPAL_ID` and perform project visibility checks before listing deltas or exporting M6 data.
+- The README already requires `kotonoha` CLI 0.2.9+.
+
+Remaining note:
+
+- Direct database reads in the web console are implementation behavior for read-only project views. They do not define SLS normative storage requirements unless promoted in `kotonoha-spec`.
+
+### 5.7 Known non-differences
 
 The following are intentional differences, not specification conflicts:
 
 - `kotonoha.interchange.v1` is a core-supported implementation envelope, not a Phase 1 normative SLS interchange replacement.
 - `kotonoha.console_event.v0` is a Phase 3-style ingest wrapper in CLI documentation, not normative `kotonoha-spec` prose.
-- database migrations, PostgreSQL tables, GitHub correlation tables, AgentRun tables, and review-decision storage are implementation artifacts unless later promoted to normative specification text.
+- MCP tools, HTTP gateway routes, VS Code panels, web-console APIs, database migrations, PostgreSQL tables, GitHub correlation tables, AgentRun tables, and review-decision storage are implementation artifacts unless later promoted to normative specification text.
 
 ## 6. Maintenance rule
 
@@ -217,4 +277,5 @@ When a future pull request changes any of the following, this document SHOULD be
 - milestone language is added to a public spec document;
 - implementation-only envelopes are proposed for normative promotion;
 - conformance levels change;
-- `kotonoha-core` or `kotonoha-cli` changes observable validation behavior that claims alignment with `kotonoha-spec`.
+- `kotonoha-core` or `kotonoha-cli` changes observable validation behavior that claims alignment with `kotonoha-spec`;
+- `kotonoha-mcp`, `kotonoha-gateway`, `kotonoha-vscode`, or `kotonoha-web-console` changes tool execution, review authority, principal/project scoping, or validation delegation behavior.
