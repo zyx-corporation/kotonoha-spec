@@ -4,7 +4,7 @@ Status: **Informative — roadmap and implementation-alignment guidance**.
 
 This document defines how this repository uses **Phase** and **Milestone** language so readers do not confuse specification maturity, implementation delivery, and partner-repository project management.
 
-Normative requirements remain in the SLS documents under `docs/` unless a future pull request explicitly promotes part of this roadmap into normative text.
+Normative requirements remain in the SLS documents under `docs/`. Phase 2 has been promoted into normative text as [SLS-9](phase2-interchange-hardening.md) plus its schema artifact.
 
 ## 1. Terminology
 
@@ -53,7 +53,7 @@ A **Gate** is a decision point where deferred work is either:
 
 **Non-goals:**
 
-- full JSON Schema for every interchange field;
+- full JSON Schema for every future interchange field;
 - wire protocols;
 - storage-engine obligations;
 - authentication, tenancy, scalability, retention, or threat-model requirements;
@@ -70,27 +70,31 @@ A **Gate** is a decision point where deferred work is either:
 
 **Purpose:** turn the Phase 1 minimum into stricter validation and typed interchange artifacts without breaking Phase 1 compatibility.
 
-**Scope candidates:**
+**Normative anchor:** [SLS-9 Phase 2 interchange and schema hardening](phase2-interchange-hardening.md) and [`schemas/rde-review-output.phase2.schema.json`](../schemas/rde-review-output.phase2.schema.json).
 
-- JSON Schema baseline for minimal RDE review output;
+**Scope:**
+
+- JSON Schema baseline for the minimal RDE review output;
 - validation of closed vocabularies such as `source_context_status`;
-- strict envelope validation in implementation tooling;
-- typed optional lineage properties;
-- implementation profile alignment for `minimal`, `standard`, and `full` conformance;
-- conformance tests for public interchange artifacts.
+- strict required-category validation for the seven RDE categories;
+- rejection of unknown RDE category keys;
+- documented handling of non-strict versus strict `summary` validation;
+- implementation profile alignment for RDE validation behavior.
 
 **Non-goals:**
 
 - broad product UI specification;
 - final storage topology;
 - network protocol commitments;
-- promotion of implementation-only envelopes into normative SLS interchange unless explicitly reviewed.
+- promotion of implementation-only envelopes into normative SLS interchange unless explicitly reviewed;
+- full schemas for every future SLS object.
 
 **Exit criteria:**
 
-- schema and validator behavior agree for Phase 1 records;
-- unknown fields, closed enums, and version compatibility are handled consistently;
-- CLI and core validation paths report failures in a way traceable to `kotonoha-spec` sections.
+- schema and validator behavior agree for Phase 1-compatible RDE records;
+- unknown category keys, closed enums, and version compatibility are handled consistently;
+- CLI and core validation paths report failures in a way traceable to `kotonoha-spec` sections;
+- Phase 2 validation can be claimed without relying on private repositories.
 
 ### 2.3 Phase 3 — Rich semantic modeling beyond minimal RDE categories
 
@@ -163,7 +167,7 @@ Milestone numbers are implementation-roadmap labels. They MUST NOT be used as su
 | Specification Phase | Main concern | Supporting milestones | Normative status |
 | --- | --- | --- | --- |
 | Phase 1 | Public MVP, minimal reviewable SLS surface | M1/M2 may exercise parts of it | Normative in SLS-1 to SLS-8 |
-| Phase 2 | Interchange and schema hardening | M2 and validator work | Normative only when promoted into `kotonoha-spec` |
+| Phase 2 | Interchange and schema hardening | M2 and validator work | Normative in SLS-9 and the Phase 2 RDE schema artifact |
 | Phase 3 | Rich semantic modeling and transport wrappers | M3/M3.5 and loss-modeling work | Mixed; wrappers remain non-normative unless promoted |
 | Phase 4 | Consolidation and reliability governance | M4/M5/M6/M7 and public governance work | Future; not yet normative unless explicitly added |
 
@@ -179,16 +183,16 @@ Observed alignment:
 - `kotonoha-core` RDE validation checks the seven Phase 1 category keys.
 - `kotonoha-core` rejects unknown RDE category keys.
 - `kotonoha-core` enforces `spec_version == 0.1` for Phase 1 RDE validation.
-- `kotonoha-core` permits implementation-specific keys inside category items, consistent with SLS-4.
-- `kotonoha-core` now validates `source_context_status` as the Phase 1 closed vocabulary when that field is present.
+- `kotonoha-core` permits implementation-specific keys inside category items, consistent with SLS-4 and SLS-9.
+- `kotonoha-core` validates `source_context_status` as the Phase 1/Phase 2 closed vocabulary when that field is present.
 
 Resolved discrepancy:
 
-- Before this alignment update, `kotonoha-core` did not validate the newly fixed `source_context_status` closed vocabulary. The validator has been updated so non-string or unknown values fail validation.
+- Before the Phase 2 promotion, `kotonoha-core` did not validate the newly fixed `source_context_status` closed vocabulary. The validator has been updated so non-string or unknown values fail validation.
 
 Remaining note:
 
-- `kotonoha-core` strict envelope behavior is an implementation hardening layer. It does not by itself widen Phase 1 normative requirements unless the corresponding text is promoted in `kotonoha-spec`.
+- `kotonoha-core` strict envelope behavior is an implementation hardening layer. It does not by itself widen normative SLS interchange unless the corresponding text is promoted in `kotonoha-spec`.
 
 ### 5.2 `kotonoha-cli`
 
@@ -208,11 +212,11 @@ Remaining note:
 Observed alignment:
 
 - `kotonoha-mcp` delegates tool execution to the official `kotonoha` CLI and does not execute arbitrary shell commands.
-- `kotonoha_rde_validate` delegates to `kotonoha rde validate --strict`, so Phase 1 RDE validation remains centralized in CLI/core.
+- `kotonoha_rde_validate` delegates to `kotonoha rde validate --strict`, so Phase 1/Phase 2 RDE validation remains centralized in CLI/core.
 - Human review tools call `kotonoha review approve|hold|reject` on the human path only, without `--agent-run-id`.
 - The human review path clears `KOTONOHA_AGENT_RUN_ID` from child process environment.
 - The README now describes the management UX contract as implementation guidance, not as replacement normative SLS prose.
-- The README minimum CLI version has been raised to `kotonoha` 0.2.9+ so wrapper validation includes the current Phase 1 `source_context_status` closed-vocabulary behavior.
+- The README minimum CLI version has been raised to `kotonoha` 0.2.9+ so wrapper validation includes the current Phase 2 `source_context_status` closed-vocabulary behavior.
 
 Resolved discrepancy:
 
@@ -230,7 +234,7 @@ Observed alignment:
 - `docs/gateway-contract.md` restricts process spawning to the gateway CLI delegation module and forbids arbitrary shell, direct `git`, direct `gh`, and autonomous review with agent context.
 - Gateway environment variables map API keys to principals/projects and pass `KOTONOHA_PRINCIPAL_ID` / `KOTONOHA_PROJECT_ID` to child CLI processes for M6 behavior.
 - The README now describes the management UX contract as implementation guidance, not as replacement normative SLS prose.
-- The README minimum CLI version has been raised to `kotonoha` 0.2.9+ so gateway validation includes the current Phase 1 `source_context_status` closed-vocabulary behavior.
+- The README minimum CLI version has been raised to `kotonoha` 0.2.9+ so gateway validation includes the current Phase 2 `source_context_status` closed-vocabulary behavior.
 
 Remaining note:
 
@@ -243,7 +247,7 @@ Observed alignment:
 - `kotonoha-vscode` is an editor UI over MeaningDelta, RDE assessment, and human review workflows.
 - It delegates operations to the configured `kotonoha` CLI through a single CLI helper path.
 - Its environment mapping passes `DATABASE_URL`, `KOTONOHA_DECIDED_BY`, `KOTONOHA_PRINCIPAL_ID`, and `KOTONOHA_PROJECT_ID` to child CLI processes when configured.
-- The README minimum CLI requirement has been raised to `kotonoha` 0.2.9+ and now states that current Phase 1 RDE validation requires a core revision with `source_context_status` validation.
+- The README minimum CLI requirement has been raised to `kotonoha` 0.2.9+ and now states that current Phase 1/Phase 2 RDE validation requires a core revision with `source_context_status` validation.
 
 Remaining note:
 
@@ -266,7 +270,7 @@ Remaining note:
 
 The following are intentional differences, not specification conflicts:
 
-- `kotonoha.interchange.v1` is a core-supported implementation envelope, not a Phase 1 normative SLS interchange replacement.
+- `kotonoha.interchange.v1` is a core-supported implementation envelope, not a normative SLS interchange replacement unless later promoted.
 - `kotonoha.console_event.v0` is a Phase 3-style ingest wrapper in CLI documentation, not normative `kotonoha-spec` prose.
 - MCP tools, HTTP gateway routes, VS Code panels, web-console APIs, database migrations, PostgreSQL tables, GitHub correlation tables, AgentRun tables, and review-decision storage are implementation artifacts unless later promoted to normative specification text.
 
