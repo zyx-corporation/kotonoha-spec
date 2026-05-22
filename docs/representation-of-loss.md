@@ -11,6 +11,7 @@ Loss includes, without limitation:
 - Ambiguity, tension, or unresolved debate removed by clarification or simplification.
 - Scope or stakeholder pain points omitted for brevity or readability.
 - Responsibility or risk explicitly carried in prior text that disappears in a rewrite.
+- Responsibility-bearing context removed or obscured by an AI-generated or human rewrite, such as who made a claim, under what uncertainty, or under which institutional constraint.
 
 ## SLS-6.3 Relationship to diffs
 
