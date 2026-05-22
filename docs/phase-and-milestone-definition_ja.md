@@ -4,7 +4,7 @@ Status: **Informative — roadmap and implementation-alignment guidance の日�
 
 この文書は、このリポジトリで使う **Phase** と **Milestone** という語を整理し、仕様成熟度、実装到達点、関連リポジトリのプロジェクト管理が混同されないようにするための説明文書である。
 
-規範的要求は、将来のpull requestでこのロードマップの一部が明示的にnormative textへ昇格されない限り、`docs/` 以下のSLS文書に置かれる。
+規範的要求は `docs/` 以下のSLS文書に置かれる。Phase 2は、[SLS-9](phase2-interchange-hardening.md)およびschema artifactとしてnormative textへ昇格済みである。
 
 ## 1. 用語
 
@@ -53,7 +53,7 @@ MilestoneはPhaseを支えることがあるが、Milestoneが完了しても、
 
 **非目標:**
 
-- すべてのinterchange fieldに対する完全なJSON Schema。
+- 将来のすべてのinterchange fieldに対する完全なJSON Schema。
 - wire protocol。
 - storage engine上の義務。
 - authentication、tenancy、scalability、retention、threat model requirements。
@@ -70,14 +70,16 @@ MilestoneはPhaseを支えることがあるが、Milestoneが完了しても、
 
 **目的:** Phase 1の最小仕様を、Phase 1互換性を壊さずに、より厳密なvalidationとtyped interchange artifactへ発展させる。
 
-**範囲候補:**
+**Normative anchor:** [SLS-9 Phase 2 interchange and schema hardening](phase2-interchange-hardening.md) および [`schemas/rde-review-output.phase2.schema.json`](../schemas/rde-review-output.phase2.schema.json)。
+
+**範囲:**
 
 - 最小RDE review outputのJSON Schema baseline。
 - `source_context_status` のようなclosed vocabularyのvalidation。
-- implementation toolingにおけるstrict envelope validation。
-- typed optional lineage properties。
-- `minimal`、`standard`、`full` conformanceに対応するimplementation profile alignment。
-- public interchange artifactに対するconformance test。
+- 7つのRDE categoryに対するstrict required-category validation。
+- 未知のRDE category keyの拒否。
+- non-strict / strict modeにおける `summary` validationの扱いの文書化。
+- RDE validation behaviorに関するimplementation profile alignment。
 
 **非目標:**
 
@@ -85,12 +87,14 @@ MilestoneはPhaseを支えることがあるが、Milestoneが完了しても、
 - 最終的なstorage topology。
 - network protocol commitment。
 - 明示的レビューなしにimplementation-only envelopeをnormative SLS interchangeへ昇格すること。
+- 将来のすべてのSLS objectに対する完全なschema。
 
 **Exit criteria:**
 
-- Phase 1 recordに対して、schemaとvalidator behaviorが一致している。
-- unknown field、closed enum、version compatibilityが一貫して処理される。
+- Phase 1互換のRDE recordに対して、schemaとvalidator behaviorが一致している。
+- unknown category key、closed enum、version compatibilityが一貫して処理される。
 - CLIとcoreのvalidation pathが、`kotonoha-spec`のsectionへtrace可能な形でfailureを報告する。
+- private repositoryに依存せず、Phase 2 validation conformanceを表明できる。
 
 ### 2.3 Phase 3 — Rich semantic modeling beyond minimal RDE categories
 
@@ -163,7 +167,7 @@ Milestone番号はimplementation-roadmap labelである。Specification conforma
 | Specification Phase | Main concern | Supporting milestones | Normative status |
 | --- | --- | --- | --- |
 | Phase 1 | Public MVP、最小のreviewable SLS surface | M1/M2がその一部を実装上確認する場合がある | SLS-1からSLS-8でnormative |
-| Phase 2 | Interchange and schema hardening | M2およびvalidator work | `kotonoha-spec`へ昇格された場合のみnormative |
+| Phase 2 | Interchange and schema hardening | M2およびvalidator work | SLS-9およびPhase 2 RDE schema artifactでnormative |
 | Phase 3 | Rich semantic modeling and transport wrappers | M3/M3.5およびloss-modeling work | 混在。wrapperは昇格されない限りnon-normative |
 | Phase 4 | Consolidation and reliability governance | M4/M5/M6/M7およびpublic governance work | Future。明示的に追加されない限り未normative |
 
@@ -179,16 +183,16 @@ Observed alignment:
 - `kotonoha-core` のRDE validationは、Phase 1の7つのcategory keyを検査する。
 - `kotonoha-core` は未知のRDE category keyを拒否する。
 - `kotonoha-core` はPhase 1 RDE validationにおいて `spec_version == 0.1` を強制する。
-- `kotonoha-core` は、SLS-4と整合する形で、category item内のimplementation-specific keyを許容する。
-- `kotonoha-core` は、`source_context_status` が存在する場合、それをPhase 1のclosed vocabularyとしてvalidationする。
+- `kotonoha-core` は、SLS-4およびSLS-9と整合する形で、category item内のimplementation-specific keyを許容する。
+- `kotonoha-core` は、`source_context_status` が存在する場合、それをPhase 1/Phase 2のclosed vocabularyとしてvalidationする。
 
 Resolved discrepancy:
 
-- このalignment update以前、`kotonoha-core` は新たに固定された `source_context_status` closed vocabularyをvalidationしていなかった。validatorは更新され、非string値または未知値はvalidation failureとなる。
+- Phase 2昇格以前、`kotonoha-core` は新たに固定された `source_context_status` closed vocabularyをvalidationしていなかった。validatorは更新され、非string値または未知値はvalidation failureとなる。
 
 Remaining note:
 
-- `kotonoha-core` のstrict envelope behaviorはimplementation hardening layerである。それ自体は、対応する文言が `kotonoha-spec` に昇格されない限り、Phase 1 normative requirementを拡張しない。
+- `kotonoha-core` のstrict envelope behaviorはimplementation hardening layerである。それ自体は、対応する文言が `kotonoha-spec` に昇格されない限り、normative SLS interchangeを拡張しない。
 
 ### 5.2 `kotonoha-cli`
 
@@ -208,11 +212,11 @@ Remaining note:
 Observed alignment:
 
 - `kotonoha-mcp` はtool executionをofficial `kotonoha` CLIへ委譲し、arbitrary shell commandを実行しない。
-- `kotonoha_rde_validate` は `kotonoha rde validate --strict` へ委譲するため、Phase 1 RDE validationはCLI/coreに集中している。
+- `kotonoha_rde_validate` は `kotonoha rde validate --strict` へ委譲するため、Phase 1/Phase 2 RDE validationはCLI/coreに集中している。
 - Human review toolは、human path上でのみ `kotonoha review approve|hold|reject` を呼び出し、`--agent-run-id` を付けない。
 - Human review pathは、child process environmentから `KOTONOHA_AGENT_RUN_ID` を削除する。
 - READMEは、management UX contractを、SLS normative proseの置換ではなくimplementation guidanceとして説明するよう更新されている。
-- READMEの最小CLI versionは `kotonoha` 0.2.9+ に引き上げられ、wrapper validationが現在のPhase 1 `source_context_status` closed-vocabulary behaviorを含むようになっている。
+- READMEの最小CLI versionは `kotonoha` 0.2.9+ に引き上げられ、wrapper validationが現在のPhase 2 `source_context_status` closed-vocabulary behaviorを含むようになっている。
 
 Resolved discrepancy:
 
@@ -230,7 +234,7 @@ Observed alignment:
 - `docs/gateway-contract.md` は、process spawningをgateway CLI delegation moduleへ制限し、arbitrary shell、direct `git`、direct `gh`、agent context付きのautonomous reviewを禁止する。
 - Gateway environment variableはAPI keyをprincipal/projectへ対応付け、M6 behaviorのために `KOTONOHA_PRINCIPAL_ID` / `KOTONOHA_PROJECT_ID` をchild CLI processへ渡す。
 - READMEは、management UX contractを、SLS normative proseの置換ではなくimplementation guidanceとして説明するよう更新されている。
-- READMEの最小CLI versionは `kotonoha` 0.2.9+ に引き上げられ、gateway validationが現在のPhase 1 `source_context_status` closed-vocabulary behaviorを含むようになっている。
+- READMEの最小CLI versionは `kotonoha` 0.2.9+ に引き上げられ、gateway validationが現在のPhase 2 `source_context_status` closed-vocabulary behaviorを含むようになっている。
 
 Remaining note:
 
@@ -243,7 +247,7 @@ Observed alignment:
 - `kotonoha-vscode` はMeaningDelta、RDE assessment、human review workflowのためのeditor UIである。
 - 操作は、configured `kotonoha` CLIへsingle CLI helper pathを通じて委譲される。
 - environment mappingは、設定されている場合、`DATABASE_URL`、`KOTONOHA_DECIDED_BY`、`KOTONOHA_PRINCIPAL_ID`、`KOTONOHA_PROJECT_ID` をchild CLI processへ渡す。
-- READMEの最小CLI requirementは `kotonoha` 0.2.9+ に引き上げられ、現在のPhase 1 RDE validationには `source_context_status` validationを含むcore revisionが必要だと明記されている。
+- READMEの最小CLI requirementは `kotonoha` 0.2.9+ に引き上げられ、現在のPhase 1/Phase 2 RDE validationには `source_context_status` validationを含むcore revisionが必要だと明記されている。
 
 Remaining note:
 
@@ -266,7 +270,7 @@ Remaining note:
 
 以下は意図的な差異であり、specification conflictではない。
 
-- `kotonoha.interchange.v1` はcore-supported implementation envelopeであり、Phase 1 normative SLS interchange replacementではない。
+- `kotonoha.interchange.v1` はcore-supported implementation envelopeであり、将来昇格されない限りnormative SLS interchange replacementではない。
 - `kotonoha.console_event.v0` はCLI documentationにおけるPhase 3-style ingest wrapperであり、normative `kotonoha-spec` proseではない。
 - MCP tools、HTTP gateway routes、VS Code panels、web-console APIs、database migrations、PostgreSQL tables、GitHub correlation tables、AgentRun tables、review-decision storageは、将来normative specification textへ昇格されない限りimplementation artifactである。
 
