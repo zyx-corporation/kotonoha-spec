@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- [phase-and-milestone-definition.md](docs/phase-and-milestone-definition.md): **M4** milestone row and completion note (implementation checkpoint, not a specification Phase).
 - [phase2-interchange-hardening.md](docs/phase2-interchange-hardening.md): promoted Phase 2 interchange and schema hardening as **SLS-9**, a normative RDE validation profile.
 - [schemas/rde-review-output.phase2.schema.json](schemas/rde-review-output.phase2.schema.json): added normative Phase 2 JSON Schema artifact for the minimum RDE review output validation profile.
 - [docs/README.md](docs/README.md): indexed Phase 2 normative validation profile and schema artifact.

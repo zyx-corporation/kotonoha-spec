@@ -159,6 +159,9 @@ The following milestones are descriptive checkpoints. They are not normative req
 | M5 | AgentRun gateway | Agent context, capability checks, MCP/gateway routes, agent-scoped MeaningDelta | `kotonoha-cli`, `kotonoha-core`, `kotonoha-mcp`, `kotonoha-gateway` |
 | M6 | Team / principal mode | principal, project, and role-based operational scoping | `kotonoha-cli`, `kotonoha-core`, gateway repos |
 | M7 | Team-mode UI | web-console or editor surfaces for project-scoped viewing and export, normally delegating writes or exports to CLI/core paths | `kotonoha-web-console`, `kotonoha-vscode` |
+| M4 | GitHub Issue/PR correlation | Link MeaningDelta to GitHub issues/PRs; audit evidence only (not normative wire protocol) | `kotonoha-cli`, `kotonoha-core` |
+
+**M4 completion (2026-05):** implementation milestones M1–M4 are delivery checkpoints in partner repos; they are **not** specification Phases. Public Phase 2 normative surface is **SLS-9**; GitHub tables remain implementation artifacts unless promoted via [#25](https://github.com/zyx-corporation/kotonoha-spec/issues/25).
 
 Milestone numbers are implementation-roadmap labels. They MUST NOT be used as substitutes for SLS section identifiers when claiming specification conformance.
 
