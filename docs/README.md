@@ -34,7 +34,7 @@ Phase 1 specification documents use stable hierarchical section identifiers: `SL
 
 New readers SHOULD follow **[SLS-1 → SLS-2 → SLS-3 → SLS-4 → SLS-5 → SLS-6 → SLS-7 → SLS-8]**, optionally returning to SLS-1 for definitions. Editors preparing pull requests SHOULD touch [SLS-8](versioning.md) whenever normative headings move, section identifiers change, or materially change wording.
 
-Public issue **[#3 — representation of lost elements](https://github.com/zyx-corporation/kotonoha-spec/issues/3)** tracks the interchange encoding work that complements [SLS-6](representation-of-loss.md).
+Public issue **[#3 — representation of lost elements](https://github.com/zyx-corporation/kotonoha-spec/issues/3)** tracks interchange encoding beyond the interim in [SLS-6.5](representation-of-loss.md#sls-65-interim-encoding-phase-3-gate--2026-05). Normative backlog rollup: [#25](https://github.com/zyx-corporation/kotonoha-spec/issues/25).
 
 ## Incremental work (explicitly deferred)
 
