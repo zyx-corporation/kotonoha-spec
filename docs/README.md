@@ -7,6 +7,7 @@ English is the **primary normative language** for documents in this directory. J
 | [repository-governance.md](repository-governance.md) | Ecosystem roles, dependency direction, informative governance | **Informative** |
 | [documentation-placement-policy.md](documentation-placement-policy.md) | Role split between `kotonoha-spec` and `kotonoha-docs`; placement rules for public documents | **Informative — repository governance** |
 | [documentation-content-specification.md](documentation-content-specification.md) | Concrete document classes, placement inventory, and migration rules | **Informative — documentation governance** |
+| [phase-and-milestone-definition.md](phase-and-milestone-definition.md) | Phase vs milestone vocabulary, roadmap boundaries, and current implementation alignment check | **Informative — roadmap / alignment** |
 | [requirements-overview.md](requirements-overview.md) | Kotonoha system requirements overview, full architecture picture, and use cases | **Informative** |
 | [kotonoha-backend-minimum-requirements.md](kotonoha-backend-minimum-requirements.md) | Kotonoha backend minimum requirements draft for MeaningEvent / RDE / Policy Boundary flow | **Informative draft — future normative candidate** |
 | [meaning-event-schema.md](meaning-event-schema.md) | Minimal MeaningEvent schema draft | **Informative draft — future normative candidate** |
