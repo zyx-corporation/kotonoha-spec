@@ -138,6 +138,8 @@ The implementation emits an RDE review output record conforming to [SLS-4.4](rde
 
 Each observation item **SHOULD** include a human-readable `summary`. Implementations **MAY** include additional fields, such as evidence references, confidence notes, or source spans, provided the minimum record remains interpretable.
 
+When emitting `source_context_status`, implementations **MUST** use the closed vocabulary defined in [SLS-4.4.3](rde-review-output.md#sls-443-source-context-status-vocabulary).
+
 ### SLS-5.4.6 Validation and traceability
 
 The implementation validates the output shape and preserves correlation to the subject and any audit trail.
@@ -177,6 +179,8 @@ An RDE implementation **SHOULD** distinguish at least the following situations w
 - source context inferred by the implementation;
 - source context missing, partial, or contested.
 
+When represented in an RDE review output item, these situations **MUST** use the `source_context_status` vocabulary defined in [SLS-4.4.3](rde-review-output.md#sls-443-source-context-status-vocabulary).
+
 When source context is inferred, partial, or contested, the implementation **SHOULD** avoid reporting `preserved`, `lost`, or `deviation_risk` as final conclusions without qualification. It may instead record the issue as `intentionally_unresolved`, `deviation_risk`, or a qualified observation item.
 
 ## SLS-5.6 Output requirements
@@ -199,6 +203,8 @@ Observation items **MAY** include:
 - implementation-specific metadata.
 
 Implementation-specific metadata **MUST NOT** be required to understand the minimum RDE categories.
+
+When `source_context_status` is present, it **MUST** follow [SLS-4.4.3](rde-review-output.md#sls-443-source-context-status-vocabulary).
 
 ### SLS-5.6.3 Empty categories
 
@@ -248,15 +254,38 @@ An implementation **MAY** feed RDE observations into a policy workflow, but the 
 
 ## SLS-5.11 Implementation conformance
 
-An implementation claiming conformance to this RDE implementation specification **MUST** document:
+An implementation claiming conformance to this RDE implementation specification **MUST** identify its claimed conformance level: `minimal`, `standard`, or `full`.
+
+### SLS-5.11.1 Minimal conformance
+
+A `minimal` implementation **MUST**:
+
+- accept at least one review subject or `subject_ref`;
+- emit or ingest the minimum RDE review output shape defined in [SLS-4.4](rde-review-output.md);
+- preserve the required RDE category structure;
+- use the `source_context_status` vocabulary from [SLS-4.4.3](rde-review-output.md#sls-443-source-context-status-vocabulary) when that field is emitted;
+- avoid presenting RDE output as final approval, rejection, publication authorization, or replacement of human judgment.
+
+### SLS-5.11.2 Standard conformance
+
+A `standard` implementation **MUST** satisfy `minimal` conformance and **MUST** document:
 
 - which subjects it can evaluate;
-- how it obtains or receives context;
+- how it obtains, receives, resolves, or infers context;
 - how it maps observations to RDE categories;
 - how it emits or validates RDE review output;
+- how it distinguishes supplied, resolved, inferred, missing, partial, or contested source context when material;
+- known limitations that materially affect reviewability.
+
+### SLS-5.11.3 Full conformance
+
+A `full` implementation **MUST** satisfy `standard` conformance and **MUST** document:
+
 - how it preserves traceability;
-- how it distinguishes supplied, resolved, inferred, missing, or contested source context when material;
-- which parts are automated and which require human review.
+- how it correlates RDE outputs with lineage units or audit records when those records exist;
+- which parts are automated and which require human review;
+- how later reviewers can contest, reopen, revise, or supersede recorded observations;
+- validation behavior for malformed records versus well-formed but semantically weak or incomplete records.
 
 ## SLS-5.12 Informative implementation patterns
 
