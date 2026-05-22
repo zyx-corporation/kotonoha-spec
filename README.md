@@ -2,6 +2,8 @@
 
 **Public specifications for the Semantic Lineage System (SLS).** This repository is the canonical, reviewable surface for external stakeholders, OSS implementations, and integrations in the Kotonoha ecosystem.
 
+SLS is not merely a semantic diff or data interchange format. It specifies a reviewable institutional surface for recording meaning-relevant change, source context, limits of observation, and what remains open to later re-examination.
+
 **Japanese:** [README_ja.md](README_ja.md)（日本語版）
 
 ## What belongs here
