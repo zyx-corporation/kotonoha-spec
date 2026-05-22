@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zyx-corporation.github.io/kotonoha-spec/schemas/rde-review-output.phase2.schema.json",
+  "title": "SLS Phase 2 RDE Review Output Minimum Schema",
+  "description": "Normative Phase 2 JSON Schema for the minimum RDE review output shape defined by SLS-4 and hardened by SLS-9. This schema preserves Phase 1 record compatibility while fixing required categories and the source_context_status closed vocabulary.",
+  "type": "object",
+  "required": ["rde_review_output"],
+  "properties": {
+    "rde_review_output": {
+      "type": "object",
+      "required": ["spec_version", "subject_ref", "categories"],
+      "properties": {
+        "spec_version": {
+          "type": "string",
+          "const": "0.1"
+        },
+        "subject_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "categories": {
+          "type": "object",
+          "required": [
+            "preserved",
+            "transformed",
+            "complemented",
+            "intentionally_unresolved",
+            "lost",
+            "deviation_risk",
+            "next_update_policy"
+          ],
+          "properties": {
+            "preserved": { "$ref": "#/$defs/categoryItems" },
+            "transformed": { "$ref": "#/$defs/categoryItems" },
+            "complemented": { "$ref": "#/$defs/categoryItems" },
+            "intentionally_unresolved": { "$ref": "#/$defs/categoryItems" },
+            "lost": { "$ref": "#/$defs/categoryItems" },
+            "deviation_risk": { "$ref": "#/$defs/categoryItems" },
+            "next_update_policy": { "$ref": "#/$defs/categoryItems" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "categoryItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "summary": {
+            "type": "string"
+          },
+          "evidence_ref": {
+            "type": "string"
+          },
+          "source_context_status": {
+            "type": "string",
+            "enum": [
+              "supplied",
+              "resolved",
+              "inferred",
+              "missing",
+              "partial",
+              "contested"
+            ]
+          },
+          "confidence_note": {
+            "type": "string"
+          },
+          "reviewer_note": {
+            "type": "string"
+          },
+          "decision_ref": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}
