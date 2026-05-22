@@ -4,6 +4,8 @@
 
 This document establishes scope, terminology, and conformance language for the **Semantic Lineage System (SLS)** public specification bundle maintained in this repository. Together with the other Phase 1 documents, it defines a **minimal reviewable surface** for implementations and integrations without pretending to finalize every data structure.
 
+SLS is not merely a semantic diff or data interchange specification. It is an institutional specification for making meaning changes reviewable by recording who observed what change, under which context, with which limits, and what remains open to re-examination.
+
 *Non-normative Japanese illustrative companion:* [introduction_ja.md](introduction_ja.md) (figures and notes; conforms to EN source).
 
 ## SLS-1.2 Normative content
