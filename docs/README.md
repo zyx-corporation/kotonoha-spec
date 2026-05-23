@@ -46,6 +46,7 @@ Phase 2 promotes RDE validation hardening into public normative text without cha
 | SLS-9 | [phase2-interchange-hardening.md](phase2-interchange-hardening.md) | Phase 2 RDE validation profile | **Normative (Phase 2 validation profile)** |
 | SLS-9-ja | [phase2-interchange-hardening_ja.md](phase2-interchange-hardening_ja.md) | Phase 2 interchange hardening (JA companion) | **Informative — Japanese only** |
 | Schema | [../schemas/rde-review-output.phase2.schema.json](../schemas/rde-review-output.phase2.schema.json) | Phase 2 RDE review output minimum JSON Schema | **Normative schema artifact** |
+| Schema (draft) | [../schemas/rde-assessment-storage.v0.1.draft.schema.json](../schemas/rde-assessment-storage.v0.1.draft.schema.json) | RDE assessment storage record (informative; [#47](https://github.com/zyx-corporation/kotonoha-spec/issues/47)) | **Informative draft** |
 
 ### Recommended reading order
 

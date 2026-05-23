@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zyx-corporation.github.io/kotonoha-spec/schemas/rde-assessment-storage.v0.1.draft.schema.json",
+  "title": "RDE Assessment Storage Record (informative draft v0.1)",
+  "description": "Informative draft JSON Schema for a logical rde_assessments row shape (payload + M2 metadata). NOT normative; does not replace SLS-4/SLS-9. See docs/rde-assessment-storage-increment.md and kotonoha-spec #47.",
+  "type": "object",
+  "required": ["meaning_delta_id", "payload"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Assessment row UUID when persisted."
+    },
+    "meaning_delta_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "payload": {
+      "type": "object",
+      "description": "Evaluation JSONB; MAY contain rde_review_output per SLS-4.",
+      "properties": {
+        "rde_review_output": {
+          "$ref": "rde-review-output.phase2.schema.json#/properties/rde_review_output"
+        }
+      },
+      "additionalProperties": true
+    },
+    "payload_schema_version": {
+      "type": "string",
+      "description": "Interchange spec_version when payload embeds Phase 1 RDE output.",
+      "pattern": "^0\\.1$"
+    },
+    "source_kind": {
+      "type": "string",
+      "enum": ["cli", "llm", "import", "replay"]
+    },
+    "validation_report": {
+      "type": "object",
+      "description": "Machine-readable validation summary at attach time.",
+      "additionalProperties": true
+    },
+    "audit_correlation_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "SHOULD align with audit_events.correlation_ref / subject_ref (SLS-7)."
+    },
+    "rde_document_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Optional FK when interchange row materialized in rde_documents."
+    }
+  },
+  "additionalProperties": false
+}

@@ -8,3 +8,4 @@
 - 将来の公開仕様候補として、ストレージ行の論理フィールド（`payload`, `payload_schema_version`, `source_kind`, `audit_correlation_id`, `rde_document_id` 等）を整理。
 - Phase 1/2 の検証プロファイル（SLS-9）や `lost` interim（[#3](https://github.com/zyx-corporation/kotonoha-spec/issues/3)）は置き換えない。
 - 追跡: [#47](https://github.com/zyx-corporation/kotonoha-spec/issues/47)
+- スキーマ草案: [`schemas/rde-assessment-storage.v0.1.draft.schema.json`](../schemas/rde-assessment-storage.v0.1.draft.schema.json)（informative）
