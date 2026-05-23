@@ -60,6 +60,8 @@ Phase 1 の規範仕様文書には、`SLS-1.4.4` や `SLS-5.4.3` のような�
 
 詳細リストは **`README.md` の Incremental work** に従います。概要として:
 
+- [**RDE assessment ストレージ増分**](rde-assessment-storage-increment_ja.md)（[#47](https://github.com/zyx-corporation/kotonoha-spec/issues/47)）
+
 - interchange 全項目の公開 JSON Schema
 - lineage の型付き細目の段階的固定
 - ネットワーク API・プロトコル詳細（interchange が安定後を想定）

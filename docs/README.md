@@ -55,6 +55,7 @@ Public issue **[#3 — representation of lost elements](https://github.com/zyx-c
 
 ## Incremental work (explicitly deferred)
 
+- [**RDE assessment storage**](rde-assessment-storage-increment.md) (informative draft; [#47](https://github.com/zyx-corporation/kotonoha-spec/issues/47)) — JSONB bound to MeaningDelta vs SLS-4 interchange.
 - Full JSON Schema published for **all** future interchange fields beyond the Phase 2 RDE review output minimum schema.
 - Typed schemas that fix every optional lineage property enumerated in later increments.
 - Wire-level APIs and network protocols (typically after interchange versioning stabilizes).
