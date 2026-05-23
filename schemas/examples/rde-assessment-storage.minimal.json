@@ -1,0 +1,25 @@
+{
+  "meaning_delta_id": "00000000-0000-4000-8000-000000000099",
+  "payload_schema_version": "0.1",
+  "source_kind": "cli",
+  "audit_correlation_id": "https://example.invalid/subject/smoke",
+  "payload": {
+    "rde_review_output": {
+      "spec_version": "0.1",
+      "subject_ref": "https://example.invalid/subject/smoke",
+      "categories": {
+        "preserved": [],
+        "transformed": [],
+        "complemented": [],
+        "intentionally_unresolved": [],
+        "lost": [],
+        "deviation_risk": [],
+        "next_update_policy": []
+      }
+    }
+  },
+  "validation_report": {
+    "strict": true,
+    "phase2_profile": true
+  }
+}

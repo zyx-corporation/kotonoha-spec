@@ -61,7 +61,7 @@ Logical fields aligned with current PostgreSQL (`rde_assessments` + M2 metadata)
 | Step | Action |
 | --- | --- |
 | 1 | Stabilize this draft via [#47](https://github.com/zyx-corporation/kotonoha-spec/issues/47) checklist |
-| 2 | Optional JSON Schema artifact under `schemas/` (separate from `rde-review-output.phase2.schema.json`) |
+| 2 | JSON Schema draft under `schemas/` — [`rde-assessment-storage.v0.1.draft.schema.json`](../schemas/rde-assessment-storage.v0.1.draft.schema.json) (**informative**; see [`schemas/README.md`](../schemas/README.md)) |
 | 3 | Promotion per [kotonoha-management `17`](https://github.com/zyx-corporation/kotonoha-management/blob/main/docs/17_spec_escalation_workflow.md) only when implementation and review agree |
 
 **Implementation traceability:** [`kotonoha-core` spec-traceability](https://github.com/zyx-corporation/kotonoha-core/blob/main/docs/spec-traceability.md) — RDEAssessment row.
