@@ -20,7 +20,7 @@
       "description": "Evaluation JSONB; MAY contain rde_review_output per SLS-4.",
       "properties": {
         "rde_review_output": {
-          "$ref": "rde-review-output.phase2.schema.json#/properties/rde_review_output"
+          "$ref": "./rde-review-output.phase2.schema.json#/properties/rde_review_output"
         }
       },
       "additionalProperties": true
