@@ -14,7 +14,7 @@ English is the **primary normative language** for documents in this directory. J
 | [meaning-event-schema.md](meaning-event-schema.md) | Minimal MeaningEvent schema draft | **Informative draft — future normative candidate** |
 | [git_operation_rules.md](git_operation_rules.md) | Git/Issue/branch/PR workflow (Japanese) | **Informative — process** |
 | [T-RDE_v1.0.md](T-RDE_v1.0.md) | T-RDE v1.0 — meaning audit for vibe coding (ΔM, trace map, quality gates) | **Informative — method (canonical, theory)** |
-| [t_rde_実行プロンプト_v_1_論文準拠.md](t_rde_実行プロンプト_v_1_論文準拠.md) | T-RDE execution prompt v1 (paper-aligned) for LLM audit sessions | **Informative — method (canonical, operational)** |
+| [t_rde_実行プロンプト_v_1_論文準拠.md](t_rde_実行プロンプト_v_1_論文準拠.md) | T-RDE execution prompt v1.1a (T-RDE v1.2 paper-aligned) for LLM audit sessions | **Informative — method (canonical, operational)** |
 
 ## Phase 1 — Public specification MVP (bundle **0.1**)
 
