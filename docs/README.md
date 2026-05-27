@@ -13,6 +13,7 @@ English is the **primary normative language** for documents in this directory. J
 | [kotonoha-backend-minimum-requirements.md](kotonoha-backend-minimum-requirements.md) | Kotonoha backend minimum requirements draft for MeaningEvent / RDE / Policy Boundary flow | **Informative draft — future normative candidate** |
 | [meaning-event-schema.md](meaning-event-schema.md) | Minimal MeaningEvent schema draft | **Informative draft — future normative candidate** |
 | [git_operation_rules.md](git_operation_rules.md) | Git/Issue/branch/PR workflow (Japanese) | **Informative — process** |
+| [t_rde_v_1.md](t_rde_v_1.md) | T-RDE v1.0 — meaning audit for vibe coding (ΔM, trace map, quality gates) | **Informative — method (canonical)** |
 
 ## Phase 1 — Public specification MVP (bundle **0.1**)
 
