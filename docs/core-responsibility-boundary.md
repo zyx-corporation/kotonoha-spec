@@ -129,7 +129,7 @@ UI adapters MUST NOT treat core or CLI behaviour as a substitute for spec when d
 | Engine selection, model routing, evaluate endpoint contract | Does not define RDE category vocabulary |
 | Expansion layer — secondary until stable | Core stays free of HTTP route definitions |
 
-Orchestrator API semantics are documented in orchestrator spec/docs until promoted into `kotonoha-spec`.
+Orchestrator API semantics are documented in orchestrator spec/docs until promoted into `kotonoha-spec`. See [`orchestrator-api-stability-boundary.md`](orchestrator-api-stability-boundary.md) for stable vs experimental tiers and fallback policy.
 
 ## Decision checklist (future core changes)
 
