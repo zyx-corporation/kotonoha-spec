@@ -5,6 +5,7 @@ English is the **primary normative language** for documents in this directory. J
 | Document | Title | Status |
 | --- | --- | --- |
 | [repository-governance.md](repository-governance.md) | Ecosystem roles, dependency direction, informative governance | **Informative** |
+| [current-official-architecture.md](current-official-architecture.md) | Current multi-repo roles and phase priorities (2026-05 convergence) | **Informative — current architecture** |
 | [documentation-placement-policy.md](documentation-placement-policy.md) | Role split between `kotonoha-spec` and `kotonoha-docs`; placement rules for public documents | **Informative — repository governance** |
 | [documentation-content-specification.md](documentation-content-specification.md) | Concrete document classes, placement inventory, and migration rules | **Informative — documentation governance** |
 | [phase-and-milestone-definition.md](phase-and-milestone-definition.md) | Phase vs milestone vocabulary, roadmap boundaries, and current implementation alignment check | **Informative — roadmap / alignment** |
