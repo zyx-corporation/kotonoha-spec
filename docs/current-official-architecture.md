@@ -141,10 +141,25 @@ The responsibility split introduces an explicit stability order and prevents UI 
 
 Revise this document whenever a repository changes its architectural responsibility or when a stable contract is promoted from implementation to specification.
 
+## CLI runtime compatibility (informative)
+
+This section is operational guidance, not normative spec.
+
+| Scope | Version |
+| --- | --- |
+| Recommended | **v0.3.1** |
+| Minimum (standalone CLI) | v0.3.0 |
+| Minimum (Obsidian CLI backend, VSCode) | v0.3.1 |
+
+Human-facing detail and update policy: [`kotonoha-docs` `ja/manual/cli_version_policy.md`](https://github.com/zyx-corporation/kotonoha-docs/blob/main/ja/manual/cli_version_policy.md).
+
+The CLI is the first stable runtime. It must conform to `kotonoha-spec`; its release tag does not define interchange semantics.
+
 ## Related documents
 
 | Document | Role |
 | --- | --- |
+| [kotonoha-docs CLI version policy](https://github.com/zyx-corporation/kotonoha-docs/blob/main/ja/manual/cli_version_policy.md) | Recommended/minimum CLI (informative) |
 | [repository-governance.md](repository-governance.md) | Ecosystem roles (informative) |
 | [architecture.md](architecture.md) | SLS-2 normative architecture |
 | [rde-review-output.md](rde-review-output.md) | RDE output contract |
