@@ -124,11 +124,12 @@ The responsibility split introduces an explicit stability order and prevents UI 
 
 ### Unresolved Elements
 
-- exact `kotonoha-core` boundary
 - orchestrator API stability
 - web console roadmap
 - MCP priority
 - gateway deployment model
+
+Resolved (informative): [`kotonoha-core` boundary](core-responsibility-boundary.md) (#163).
 
 ### Drift Risks
 
@@ -159,6 +160,7 @@ The CLI is the first stable runtime. It must conform to `kotonoha-spec`; its rel
 
 | Document | Role |
 | --- | --- |
+| [core-responsibility-boundary.md](core-responsibility-boundary.md) | `kotonoha-core` vs spec / CLI / UI / orchestrator (informative) |
 | [kotonoha-docs CLI version policy](https://github.com/zyx-corporation/kotonoha-docs/blob/main/ja/manual/cli_version_policy.md) | Recommended/minimum CLI (informative) |
 | [repository-governance.md](repository-governance.md) | Ecosystem roles (informative) |
 | [architecture.md](architecture.md) | SLS-2 normative architecture |
