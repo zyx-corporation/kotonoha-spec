@@ -9,6 +9,7 @@ English is the **primary normative language** for documents in this directory. J
 | [core-responsibility-boundary.md](core-responsibility-boundary.md) | `kotonoha-core` vs spec / CLI / UI / orchestrator responsibilities | **Informative — architecture boundary** |
 | [orchestrator-api-stability-boundary.md](orchestrator-api-stability-boundary.md) | Orchestrator API stability tiers, schema ownership, fallback policy | **Informative — expansion-layer boundary** |
 | [web-console-priority-boundary.md](web-console-priority-boundary.md) | `kotonoha-web-console` non-primary UI status and allowed workflows | **Informative — expansion-layer boundary** |
+| [mcp-gateway-expansion-boundary.md](mcp-gateway-expansion-boundary.md) | MCP and gateway expansion timing, tiers, and integration rules | **Informative — expansion integration boundary** |
 | [documentation-placement-policy.md](documentation-placement-policy.md) | Role split between `kotonoha-spec` and `kotonoha-docs`; placement rules for public documents | **Informative — repository governance** |
 | [documentation-content-specification.md](documentation-content-specification.md) | Concrete document classes, placement inventory, and migration rules | **Informative — documentation governance** |
 | [phase-and-milestone-definition.md](phase-and-milestone-definition.md) | Phase vs milestone vocabulary, roadmap boundaries, and current implementation alignment check | **Informative — roadmap / alignment** |
