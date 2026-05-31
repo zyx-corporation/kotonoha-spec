@@ -124,11 +124,10 @@ The responsibility split introduces an explicit stability order and prevents UI 
 
 ### Unresolved Elements
 
-- web console roadmap
 - MCP priority
 - gateway deployment model
 
-Resolved (informative): [`kotonoha-core` boundary](core-responsibility-boundary.md) (#163), [orchestrator API stability](orchestrator-api-stability-boundary.md) (#164).
+Resolved (informative): [`kotonoha-core` boundary](core-responsibility-boundary.md) (#163), [orchestrator API stability](orchestrator-api-stability-boundary.md) (#164), [web-console priority](web-console-priority-boundary.md) (#165).
 
 ### Drift Risks
 
@@ -161,6 +160,7 @@ The CLI is the first stable runtime. It must conform to `kotonoha-spec`; its rel
 | --- | --- |
 | [core-responsibility-boundary.md](core-responsibility-boundary.md) | `kotonoha-core` vs spec / CLI / UI / orchestrator (informative) |
 | [orchestrator-api-stability-boundary.md](orchestrator-api-stability-boundary.md) | Orchestrator API tiers and schema ownership (informative) |
+| [web-console-priority-boundary.md](web-console-priority-boundary.md) | Web console non-primary UI priority (informative) |
 | [kotonoha-docs CLI version policy](https://github.com/zyx-corporation/kotonoha-docs/blob/main/ja/manual/cli_version_policy.md) | Recommended/minimum CLI (informative) |
 | [repository-governance.md](repository-governance.md) | Ecosystem roles (informative) |
 | [architecture.md](architecture.md) | SLS-2 normative architecture |
